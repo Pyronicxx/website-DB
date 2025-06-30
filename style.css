@@ -174,4 +174,8 @@ nav a:hover {
     margin: 20px 0;
     background: #444;
 }
-
+.h3{
+   color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 1.5rem; 
+}
