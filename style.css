@@ -50,7 +50,7 @@ nav {
     padding: 20px;
     width: 250px;
     float: left;
-    min-height: calc(100vh - 100px);
+    /*min-height: calc(100vh - 100px);*/
     border-right: 2px solid #444;
 }
 
