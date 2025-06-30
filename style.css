@@ -160,10 +160,12 @@ nav a:hover {
 }
 
 .footer-column button {
+    width: 50%;
     padding: 5px 15px;
     background: #444;
     border: none;
     border-radius: 10px;
+    color: #EEE;
 }
 
 .divider {
