@@ -20,7 +20,7 @@
     <script>
         let selectTab = tab => {
             [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
-            document.querySelectorAll("#" + tab).hidden = false;
+            document.querySelector("#" + tab).hidden = false;
         }
     </script>
     <nav>
@@ -45,11 +45,11 @@
         <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
     </nav>
     <main>
-        <id id="football">
+        <id id="football" hidden>
             Football
             <img src="Football.png" alt="Football">
         </id>
-        <id id="basketball">
+        <id id="basketball" hidden>
             Basketball
             <img src="basketball.png" alt="Basketball">
         </id>
