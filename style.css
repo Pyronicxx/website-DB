@@ -133,10 +133,11 @@ footer {
 
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Force 5 equal columns */
-    gap: 30px;
-    max-width: 1400px;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .footer-column h3 {
@@ -164,7 +165,7 @@ footer {
     background-color: #555;
 }
 
-/* Keep footer at the bottom */
+/* Keep footer at bottom on short pages */
 html, body {
     height: 100%;
 }
@@ -178,9 +179,9 @@ footer {
     margin-top: auto;
 }
 
-/* Optional: allow stacking only on very narrow screens */
-@media (max-width: 700px) {
+/* Optional: stack to 2 columns on very narrow screens only */
+@media (max-width: 600px) {
     .footer-container {
-        grid-template-columns: 1fr 1fr; /* 2 columns on mobile for readability */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
