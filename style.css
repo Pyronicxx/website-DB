@@ -149,3 +149,9 @@ nav a:hover {
         grid-template-columns: 1fr; /* stack vertically on very small screens */
     }
 }
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #444;
+}
