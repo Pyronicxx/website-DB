@@ -1,0 +1,28 @@
+.regulations {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.regulations h2 {
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.regulations ul {
+    list-style-type: circle;
+    padding-left: 25px;
+}
+
+.regulations li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
