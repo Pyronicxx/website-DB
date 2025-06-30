@@ -180,5 +180,9 @@ nav a:hover {
     font-size: 1.5rem; 
 }
 .a-footer{
-    color: #EEE;
+    display: block;
+    color: #00bfff;
+    text-decoration: none;
+    margin: 5px 0;
+    transition: color 0.3s ease;
 }
