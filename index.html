@@ -17,6 +17,12 @@
 </header>
 
 <body>
+    <script>
+        let selectTab = tab => {
+            [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
+            document.querySelectorAll("#" + tab).hidden = false;
+        }
+    </script>
     <nav>
         <h2>Online-Games</h2>
         <button type="text">Roulette</button> <br>
@@ -26,8 +32,8 @@
         <button type="text">High-Roller</button> <br>
 
         <h2>Sports</h2>
-        <button type="text">Football</button> <br>
-        <button type="text">Basketball</button> <br>
+        <button onclick="selectTab('football');">Football</button> <br>
+        <button onclick="selectTab('basketball');"">Basketball</button> <br>
         <button type="text">Baseball</button> <br>
         <button type="text">American-Football</button> <br>
         <button type="text">Tennis</button> <br>
@@ -38,6 +44,14 @@
         <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
         <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
     </nav>
+    <main>
+        <id id="football">
+            Football
+        </id>
+        <id id="basketball">
+            Basketball
+        </id>
+    </main>
 
     <footer>
         <div class="footer-container">
