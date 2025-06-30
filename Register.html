@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
     <form>
         <label for="Username">Please enter your username</label>
-        <input type="text" id="Username"> <br>
-        <label for="E-Mail">Please enter your E-Mail</label>
-        <input type="text" id="E-Mail"> <br>
+        <input type="text" id="Username">
+
+        <label for="Email">Please enter your E-Mail</label>
+        <input type="email" id="Email">
+
         <label for="Password">Please enter your password</label>
-        <input type="text" id="Password"> <br>
+        <input type="password" id="Password">
+
         <label for="Password1">Please validate your password</label>
-        <input type="text" id="Password1"> <br>
+        <input type="password" id="Password1">
+
         <label for="age">Please enter your birthdate</label>
-        <input type="date" id="age"> <br>
-        <span style="font-size:12px;">You must be at least 18 years old</span> <br>
-        <label for="creditcard">Please enter your creditcard number</label> 
-        <input type="text" id="creditcard"> <br>
-        <button type = "submit">Register</button>
+        <input type="date" id="age">
+
+        <span>You must be at least 18 years old</span>
+
+        <label for="creditcard">Please enter your credit card number</label>
+        <input type="text" id="creditcard">
+
+        <button type="submit">Register</button>
     </form>
 </body>
 </html>
