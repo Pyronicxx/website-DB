@@ -112,3 +112,13 @@ nav a:hover {
         margin-left: 0;
     }
 }
+
+.show-on-hover :last-child {
+    display: none;
+}
+.show-on-hover:hover :first-child {
+    display: none;
+}
+.show-on-hover:hover :last-child {
+    display: inline;
+}
