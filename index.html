@@ -88,7 +88,7 @@
 
                 <p>Select your horse and place your bet:</p>
                 <div>
-                    Your bet: <input class="input_pferderenen" type="number" id="einsatz" min="1" max="1000" value="100">
+                    Your bet: <input class="input_pferderenen" type="number" id="einsatz" min="1" max="10000" value="10">
                 </div>
                 <div>
                     <button class="button_pferderennen" onclick="wette(0)">Red</button>
@@ -113,7 +113,7 @@
                 <script>
                     let gewettet = false;
                     let getipptesPferd = -1;
-                    let guthaben = 1000;
+                    let guthaben = 100;
                     const pferde = [
                     document.getElementById('pferd0'),
                     document.getElementById('pferd1'),
