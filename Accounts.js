@@ -13,6 +13,6 @@ let visitorAccount = {
 let account = visitorAccount;
 let updateAccount = () => {
     cookies.accounts = accounts;
-    document.querySelector("#balance").innerText = `BTC ${account.balance}`;
+    (document.querySelector("#balance") ?? {}).innerText = `BTC ${account.balance}`;
 };
 updateAccount();
