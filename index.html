@@ -24,7 +24,7 @@
             window.scrollTo({top:0});
             let i = Math.floor(Math.random() * teams.length);
             let j = Math.floor(Math.random() * (teams.length - 1));
-            j + j >= i;
+            j += j >= i;
             document.querySelector(`#${tab} .match-up .team-a`).innerHTML = teams[i];
             document.querySelector(`#${tab} .match-up .team-b`).innerHTML = teams[j];
         };
