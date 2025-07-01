@@ -213,7 +213,7 @@ nav a:hover {
     margin: 5px 0;
     transition: color 0.3s ease;
 }
-main div {
+/*main div {
     display: none; 
     max-width: 800px;
     margin: 40px auto;
@@ -224,7 +224,7 @@ main div {
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+}*/
 
 main div.active {
     display: block; 
