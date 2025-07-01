@@ -1,0 +1,88 @@
+#roulette input {
+    font-size: inherit;
+}
+
+#roulette-wheel {
+    position: relative;
+    width: 800px;
+    height: 800px;
+}
+#roulette-img {
+    width: 800px;
+    pointer-events: none;
+}
+#roulette-ball {
+    position: absolute;
+    left: 49%;
+    top: 26.75%;
+    width: 2.5%;
+    height: 2.5%;
+    border-radius: 100px;
+    background: radial-gradient(closest-side, #EEE, #EEE, #DDD, #BBB, #777);
+}
+#roulette-stats {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    margin: auto;
+    color: #EEE;
+}
+#roulette-stats {
+    display: flex;
+    justify-content: space-evenly;
+    width: 480px;
+    padding-bottom: 5px;
+    margin: auto;
+    color: #EEE;
+}
+#roulette-bet-amount-box {
+    box-sizing: border-box;
+    padding: 10px 0 10px 20px;
+    background: #333;
+    border-radius: 10px;
+    color: #EEE;
+}
+#roulette-bet-amount-box input {
+    width: 100px;
+    padding: 10px 20px 10px 0;
+    background: none;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+    color: #EEE;
+}
+
+#roulette-bet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#roulette-bet span {
+    display: flex;
+    flex-direction: column;
+}
+#roulette-bet span * {
+    box-sizing: border-box;
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    margin: 5px;
+    background: #333;
+    border: none;
+    border-radius: 10px;
+    color: #EEE;
+    text-align: center;
+}
+#roulette-bet span button:not([disabled]) {
+    cursor: pointer;
+}
+#roulette-bet span button:not([disabled]):is(:hover, :focus) {
+    background: #444;
+}
+#roulette-bet span *:focus-visible {
+    outline: none;
+}
+::-webkit-outer-spin-button, ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

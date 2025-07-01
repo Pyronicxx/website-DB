@@ -50,11 +50,19 @@ header a:hover {
     background-color: #e68a00;
 }
 
+body > span {
+    display: flex;
+    overflow: hidden;
+}
+
+main {
+    width: calc(100vw - 250px);
+}
+
 nav {
     background-color: #1e1e1e;
     padding: 20px;
     width: 250px;
-    float: left;
     /*min-height: calc(100vh - 100px);*/
     border-right: 2px solid #444;
 }
@@ -126,6 +134,10 @@ nav a:hover {
 }
 .show-on-hover:hover :last-child {
     display: inline;
+}
+
+footer {
+    border-top: 2px solid #444;
 }
 
 .footer {

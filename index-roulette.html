@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Gambling</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="initial-scale=1">
+        <meta name="description" content="">
+        <meta charset="UTF-8">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'></svg>">
+        <link rel="stylesheet" href="roulette.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <span>
+                    <a href="#" onclick="selectTab('home');">GAMBLING</a>
+                </span>
+                <span>
+                    <a href="#black-jack" onclick="selectTab('black-jack');">Black Jack</a>
+                    <a href="#roulette" onclick="selectTab('roulette');">Roulette</a>
+                </span>
+            </nav>
+        </header>
+        <main>
+            <div id="home">Home</div>
+            <div id="black-jack" hidden>Black Jack</div>
+            <div id="roulette" hidden>
+                <div id="roulette-wheel">
+                    <img id="roulette-img" src="imgs/roulette-wheel.png">
+                    <div id="roulette-ball"></div>
+                </div>
+                <div id="roulette-stats">
+                    <span id="roulette-bet-amount"><span id="roulette-bet-amount-box">$<input type="number" min="0" step="1" value="10"></span></span>
+                    <span id="roulette-result">You lost :L</span>
+                </div>
+                <div id="roulette-bet">
+                    <span><input type="number" min="0" max="36" step="1" value="0"><button onclick="bet('straight');">Straight</button></span>
+                    <span><button onclick="bet('high');">High</button><button onclick="bet('low');">Low</button></span>
+                    <span><button onclick="bet('red');">Red</button><button onclick="bet('black');">Black</button></span>
+                    <span><button onclick="bet('even');">Even</button><button onclick="bet('odd');">Odd</button></span>
+                </div>
+                <span id="result"></span>
+            </div>
+        </main>
+        <script src="roulette.js"></script>
+    </body>
+</html>

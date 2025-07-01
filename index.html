@@ -30,7 +30,8 @@
                 document.querySelector(`#${tab} .match-up .team-b`).innerHTML = teams[j + (j >= i)];
             };
         </script>
-        <nav>
+        <span>
+            <nav>
             <h2>Online-Games</h2>
             <button onclick="selectTab('roulette');">Roulette</button>
             <button onclick="selectTab('blackjack');">Blackjack</button>
@@ -52,7 +53,23 @@
         <main>
             <div id="roulette" hidden>
                 <h1>Roulette</h1>
-                <!-- TODO Coming soon -->
+                <div id="roulette-wheel">
+                    <img id="roulette-img" src="imgs/roulette-wheel.png">
+                    <div id="roulette-ball"></div>
+                </div>
+                <div id="roulette-stats">
+                    <span id="roulette-bet-amount"><span id="roulette-bet-amount-box">$<input type="number" min="0" step="1" value="10"></span></span>
+                    <span id="roulette-result">You lost :L</span>
+                </div>
+                <div id="roulette-bet">
+                    <span><input type="number" min="0" max="36" step="1" value="0"><button onclick="bet('straight');">Straight</button></span>
+                    <span><button onclick="bet('high');">High</button><button onclick="bet('low');">Low</button></span>
+                    <span><button onclick="bet('red');">Red</button><button onclick="bet('black');">Black</button></span>
+                    <span><button onclick="bet('even');">Even</button><button onclick="bet('odd');">Odd</button></span>
+                </div>
+                <span id="result"></span>
+                <script src="roulette.js"></script>
+                <link rel="stylesheet" href="roulette.css">
             </div>
             <div id="blackjack" hidden>
                 <h1>Blackjack</h1>
@@ -120,6 +137,7 @@
                 </span>
             </div>
         </main>
+        </span>
         <footer>
             <div class="footer-container">
                 <div class="footer-column">
