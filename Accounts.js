@@ -1,9 +1,9 @@
-let accounts = [
+let accounts = /*cookies.accounts ??*/ [
     {
         name: "Max",
         password: "Phonecase",
         balance: 100,
-    }
+    },
 ];
 let visitorAccount = {
     name: "Visitor",
@@ -13,6 +13,7 @@ let visitorAccount = {
 let account = visitorAccount;
 let updateAccount = () => {
     cookies.accounts = accounts;
+    (document.querySelector("#account-name") ?? {}).innerText =account.name;
     (document.querySelector("#balance") ?? {}).innerText = `BTC ${account.balance}`;
 };
 updateAccount();
