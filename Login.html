@@ -11,8 +11,8 @@
     <body>
         <script>
             let login = () => {
-                let name = document.getElementById("username").value;
-                let password = document.getElementById("password").value;
+                let name = document.querySelector("#name").value;
+                let password = document.querySelector("#password").value;
                 account = accounts.find(account => account.name == name && account.password == password);
                 if (account) {
                     updateAccount();
@@ -24,8 +24,8 @@
             };
         </script>
         <span>
-            <input type="text" id="Username" placeholder="Username">
-            <input type="text" id="Password" placeholder="Password">
+            <input type="text" id="name" placeholder="Username">
+            <input type="text" id="password" placeholder="Password">
             <button onclick="login();">Login</button>
             <span id="error" hidden>Incorrect username or password</span>
         </span>
