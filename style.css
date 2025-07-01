@@ -11,6 +11,11 @@ body {
     line-height: 1.6;
 }
 
+header, nav, button {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 header {
     background-color: #1e1e1e;
     padding: 20px;
@@ -226,15 +231,6 @@ nav a:hover {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }*/
 
-
-#high-roller {
-    height: 100px;
-    color: rgb(174, 13, 13);
-    background-image: url(stop-hand-sign.jpg);
-}
-
-
-
 main div.active {
     display: block; 
 }
@@ -255,4 +251,3 @@ main div img {
 .match-up .team-b {
     font-weight: bold;
 }
-
