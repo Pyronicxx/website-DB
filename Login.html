@@ -18,9 +18,7 @@
                     updateAccount();
                     window.location = "index.html";
                 } else {
-                    let errorMsg = document.getElementById("error-msg");
-                    errorMsg.style.color = "red";
-                    errorMsg.innerText = "Username or password wrong.";
+                    document.querySelector("#error").hidden = false;
                     account = visitorAccount;
                 }
             };
@@ -29,6 +27,7 @@
             <input type="text" id="Username" placeholder="Username">
             <input type="text" id="Password" placeholder="Password">
             <button onclick="login();">Login</button>
+            <span id="error" hidden>Incorrect username or password</span>
         </span>
     </body>
 </html>
