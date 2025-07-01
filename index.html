@@ -18,11 +18,16 @@
 
 <body>
     <script>
-        let selectTab = tab => {
+        let selectTab = (tab, ...teams) => {
             [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
-            document.querySelector("#" + tab).hidden = false;
-            window.scrollTo({top:0}) 
-        }
+            document.querySelector(`#${tab}`).hidden = false;
+            window.scrollTo({top:0});
+            let i = Math.floor(Math.random() * teams.length);
+            let j = Math.floor(Math.random() * (teams.length - 1));
+            j + j >= i;
+            document.querySelector(`#${tab} .match-up .team-a`).innerHTML = teams[i];
+            document.querySelector(`#${tab} .match-up .team-b`).innerHTML = teams[j];
+        };
     </script>
     <nav>
         <h2>Online-Games</h2>
@@ -32,8 +37,9 @@
         <button type="text">Horse-Racing</button> <br>
         <button type="text">High-Roller</button> <br>
 
+
         <h2>Sports</h2>
-        <button onclick="selectTab('football');">Football</button> <br>
+        <button onclick="selectTab('football', 'Team Alpha', 'Team Beta', 'Team Gamma', 'Team Delta');">Football</button> <br>
         <button onclick="selectTab('basketball');">Basketball</button> <br>
         <button onclick="selectTab('baseball');">Baseball</button> <br>
         <button type="text">American-Football</button> <br>
@@ -49,6 +55,9 @@
         <id id="football" hidden>
             Football
             <img src="Soccer.png" alt="Football">
+            <span class="match-up">
+                <span class="team-a"></span>:<span class="team-b"></span>
+            </span>
         </id>
         <id id="basketball" hidden>
             Basketball
