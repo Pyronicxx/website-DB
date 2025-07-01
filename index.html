@@ -20,7 +20,7 @@
             let selectTab = tab => {
                 [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
                 document.querySelector(`#${tab}`).hidden = false;
-                window.scrollTo({top:0});
+                window.scrollTo({top: 0});
             };
             let selectSportTab = (tab, ...teams) => {
                 selectTab(tab);
@@ -68,7 +68,7 @@
             </div>
             <div id="high-roller" hidden>
                 <h1>High Roller</h1>
-                <!-- TODO Coming soon -->
+                <img src="imgs/stop-hand-sign.jpg" alt="High Roller">
             </div>
             <div id="football" hidden>
                 <h1>Football</h1>
