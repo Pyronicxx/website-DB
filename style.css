@@ -273,5 +273,16 @@ main div img {
     background-image: url(stop-hand-sign.jpg);
 }
 
+#high-roller {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #ff9900;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
 
 
