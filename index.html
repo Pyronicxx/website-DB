@@ -86,15 +86,15 @@
                 <h1>Horse-Racing</h1>
                 <div id="guthabenanzeige">Guthaben: 1000 Punkte</div>
 
-                <p>Setze deinen Einsatz und wähle dein Pferd:</p>
+                <p>Select your horse and place your bet:</p>
                 <div>
                     Einsatz: <input id="input_pferderenen" type="number" id="einsatz" min="1" max="1000" value="100">
                 </div>
                 <div>
-                    <button class="button_pferderennen" onclick="wette(0)">Rot</button>
-                    <button class="button_pferderennen" onclick="wette(1)">Blau</button>
-                    <button class="button_pferderennen" onclick="wette(2)">Grün</button>
-                    <button class="button_pferderennen" onclick="wette(3)">Gelb</button>
+                    <button class="button_pferderennen" onclick="wette(0)">Red</button>
+                    <button class="button_pferderennen" onclick="wette(1)">Blue</button>
+                    <button class="button_pferderennen" onclick="wette(2)">Green</button>
+                    <button class="button_pferderennen" onclick="wette(3)">Yellow</button>
                 </div>
 
                 <div class="bahn" id="bahn">
@@ -129,12 +129,12 @@
                     if (gewettet) return;
                     const einsatz = parseInt(document.getElementById('einsatz').value);
                     if (einsatz <= 0 || einsatz > guthaben) {
-                        alert("Ungültiger Einsatz!");
+                        alert("Bet not possible!");
                         return;
                     }
                     getipptesPferd = pferdIndex;
                     gewettet = true;
-                    document.getElementById('ergebnis').innerText = `Du hast ${einsatz} Punkte auf Pferd ${pferdIndex+1} gesetzt. Rennen startet!`;
+                    document.getElementById('ergebnis').innerText = `You bet ${einsatz} Bitcoin on the ${pferdIndex+1} horse. The race begins!`;
                     starten(einsatz);
                     }
 
@@ -156,10 +156,10 @@
                             if (sieger === getipptesPferd) {
                             let gewinn = einsatz * 2;
                             guthaben += gewinn;
-                            document.getElementById('ergebnis').innerText = `Glückwunsch! Pferd ${sieger+1} hat gewonnen. Du hast ${gewinn} Punkte gewonnen.`;
+                            document.getElementById('ergebnis').innerText = `Congratulations! Horse ${sieger+1} won. You won ${gewinn} bitcoin.`;
                             } else {
                             guthaben -= einsatz;
-                            document.getElementById('ergebnis').innerText = `Leider verloren. Pferd ${sieger+1} hat gewonnen. Dein Einsatz von ${einsatz} Punkten ist weg.`;
+                            document.getElementById('ergebnis').innerText = `You lost. Horse ${sieger+1} won.`;
                             }
                             aktualisiereGuthaben();
                         }
