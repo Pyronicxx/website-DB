@@ -84,7 +84,90 @@
             </div>
             <div id="horse-racing" hidden>
                 <h1>Horse-Racing</h1>
-                <!-- TODO Coming soon -->
+                <div id="guthabenanzeige">Guthaben: 1000 Punkte</div>
+
+                <p>Setze deinen Einsatz und wähle dein Pferd:</p>
+                <div>
+                    Einsatz: <input id="input_pferderenen" type="number" id="einsatz" min="1" max="1000" value="100">
+                </div>
+                <div>
+                    <button class="button_pferderennen" onclick="wette(0)">Rot</button>
+                    <button class="button_pferderennen" onclick="wette(1)">Blau</button>
+                    <button class="button_pferderennen" onclick="wette(2)">Grün</button>
+                    <button class="button_pferderennen" onclick="wette(3)">Gelb</button>
+                </div>
+
+                <div class="bahn" id="bahn">
+                    <div class="spur" style="top: 75px;"></div>
+                    <div class="spur" style="top: 145px;"></div>
+                    <div class="spur" style="top: 215px;"></div>
+
+                    <div class="pferd rot" id="pferd0"></div>
+                    <div class="pferd blau" id="pferd1"></div>
+                    <div class="pferd gruen" id="pferd2"></div>
+                    <div class="pferd gelb" id="pferd3"></div>
+                </div>
+
+                <div id="ergebnis"></div>
+
+                <script>
+                    let gewettet = false;
+                    let getipptesPferd = -1;
+                    let guthaben = 1000;
+                    const pferde = [
+                    document.getElementById('pferd0'),
+                    document.getElementById('pferd1'),
+                    document.getElementById('pferd2'),
+                    document.getElementById('pferd3')
+                    ];
+
+                    function aktualisiereGuthaben() {
+                    document.getElementById('guthabenanzeige').innerText = `Guthaben: ${guthaben} Punkte`;
+                    }
+
+                    function wette(pferdIndex) {
+                    if (gewettet) return;
+                    const einsatz = parseInt(document.getElementById('einsatz').value);
+                    if (einsatz <= 0 || einsatz > guthaben) {
+                        alert("Ungültiger Einsatz!");
+                        return;
+                    }
+                    getipptesPferd = pferdIndex;
+                    gewettet = true;
+                    document.getElementById('ergebnis').innerText = `Du hast ${einsatz} Punkte auf Pferd ${pferdIndex+1} gesetzt. Rennen startet!`;
+                    starten(einsatz);
+                    }
+
+                    function starten(einsatz) {
+                    const ziel = document.getElementById('bahn').clientWidth - 60;
+                    let gewonnen = false;
+
+                    const intervall = setInterval(() => {
+                        for (let i = 0; i < pferde.length; i++) {
+                        let aktuellerLinks = parseFloat(pferde[i].style.left) || 0;
+                        let schritt = Math.random() * 10;
+                        aktuellerLinks += schritt;
+                        pferde[i].style.left = aktuellerLinks + "px";
+
+                        if (!gewonnen && aktuellerLinks >= ziel) {
+                            gewonnen = true;
+                            clearInterval(intervall);
+                            let sieger = i;
+                            if (sieger === getipptesPferd) {
+                            let gewinn = einsatz * 2;
+                            guthaben += gewinn;
+                            document.getElementById('ergebnis').innerText = `Glückwunsch! Pferd ${sieger+1} hat gewonnen. Du hast ${gewinn} Punkte gewonnen.`;
+                            } else {
+                            guthaben -= einsatz;
+                            document.getElementById('ergebnis').innerText = `Leider verloren. Pferd ${sieger+1} hat gewonnen. Dein Einsatz von ${einsatz} Punkten ist weg.`;
+                            }
+                            aktualisiereGuthaben();
+                        }
+                        }
+                    }, 50);
+                    }
+                </script>
+
             </div>
             <div id="high-roller" hidden>
                 <h1>Access for VIP customers only</h1>
