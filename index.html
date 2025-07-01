@@ -36,21 +36,21 @@
     </script>
     <nav>
         <h2>Online-Games</h2>
-        <button>Roulette</button> <br>
-        <button>Blackjack</button> <br>
-        <button>Poker</button> <br>
-        <button>Horse-Racing</button> <br>
-        <button>High-Roller</button> <br>
+        <button onclick="selectTab('roulette');">Roulette</button>
+        <button onclick="selectTab('blackjack');">Blackjack</button>
+        <button onclick="selectTab('poker');">Poker</button>
+        <button onclick="selectTab('horse-racing');">Horse-Racing</button>
+        <button onclick="selectTab('high-roller');">High-Roller</button>
 
 
         <h2>Sports</h2>
-        <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button> <br>
-        <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button> <br>
-        <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button> <br>
-        <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button> <br>
-        <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button> <br>
-        <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button> <br>
-        <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil')">Volleyball</button> <br>
+        <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
+        <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
+        <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
+        <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
+        <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
+        <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
+        <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
 
         <h2>Forum</h2>
         <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
@@ -59,7 +59,19 @@
     <main>
         <div id="roulette" hidden>
             <h1>Roulette</h1>
-            <!-- TODO -->
+            <!-- TODO Coming soon -->
+        </div>
+        <div id="blackjack" hidden>
+            <h1>Blackjack</h1>
+            <!-- TODO Not coming soon -->
+        </div>
+        <div id="poker" hidden>
+            <h1>Poker</h1>
+            <!-- TODO Not coming soon -->
+        </div>
+        <div id="horse-racing" hidden>
+            <h1>Horse-Racing</h1>
+            <!-- TODO Coming soon -->
         </div>
         <id id="football" hidden>
             <h1>Football</h1>
