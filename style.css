@@ -230,8 +230,7 @@ footer {
     margin: 5px 0;
     transition: color 0.3s ease;
 }
-.main_div {
-    display: none; 
+.main_div { 
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
