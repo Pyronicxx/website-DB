@@ -2,7 +2,7 @@ let accounts = cookies.accounts ?? [
     {
         name: "Max",
         password: "Phonecase",
-        balance: 1000000,
+        balance: 100,
     },
 ];
 let visitorAccount = {
