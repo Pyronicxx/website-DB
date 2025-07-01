@@ -230,7 +230,7 @@ footer {
     margin: 5px 0;
     transition: color 0.3s ease;
 }
-/*main div {
+.main_div {
     display: none; 
     max-width: 800px;
     margin: 40px auto;
@@ -241,7 +241,7 @@ footer {
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}*/
+}
 
 main div.active {
     display: block; 
@@ -263,3 +263,15 @@ main div img {
 .match-up .team-b {
     font-weight: bold;
 }
+
+#high-roller h1 {
+    color: rgb(173, 27, 27);
+    font-size: 100px;
+    margin: auto;
+}
+
+#high-roller {
+    background-image: url(stop-hand-sign.jpg);
+}
+
+
