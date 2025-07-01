@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Stake</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stake</title>
         <link rel="stylesheet" href="style.css">
         <script src="Cookies.js"></script>
     </head>
+    <header>
+        <h1>Online Casino & Slots</h1>
+        <h2>Spin the Globe, Win the World - Play Anywhere, Anytime</h2>
+
+        <a href="Login.html" target="_blank">Login</a>
+
+        <a href="Register.html" target="_blank">Register</a>
+
+        <span>Balance:<a id="balance"></a></span>
+        <script src="Accounts.js"></script>
+    </header>
+
     <body>
-        <header>
-            <h1>Online Casino & Slots</h1>
-            <h2>Spin the Globe, Win the World - Play Anywhere, Anytime</h2>
-            <a href="Login.html" target="_blank">Login</a>
-            <a href="Register.html" target="_blank">Register</a>
-            <span>Balance:<a id="balance"></a></span>
-            <script src="Accounts.js"></script>
-        </header>
         <script>
             let selectTab = tab => {
                 [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
@@ -37,18 +41,178 @@
             <button onclick="selectTab('poker');">Poker</button>
             <button onclick="selectTab('horse-racing');">Horse-Racing</button>
             <button onclick="selectTab('high-roller');">High-Roller</button>
+            <head>
+                <title>Stake</title>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="style.css">
+                <script src="Cookies.js"></script>
+            </head>
+            <body>
+                <header>
+                    <h1>Online Casino & Slots</h1>
+                    <h2>Spin the Globe, Win the World - Play Anywhere, Anytime</h2>
+                    <a href="Login.html" target="_blank">Login</a>
+                    <a href="Register.html" target="_blank">Register</a>
+                    <span>Balance:<a id="balance"></a></span>
+                    <script src="Accounts.js"></script>
+                </header>
+                <script>
+                    let selectTab = tab => {
+                        [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
+                        document.querySelector(`#${tab}`).hidden = false;
+                        window.scrollTo({top:0});
+                    };
+                    let selectSportTab = (tab, ...teams) => {
+                        selectTab(tab);
+                        let i = Math.floor(Math.random() * teams.length);
+                        let j = Math.floor(Math.random() * (teams.length - 1));
+                        document.querySelector(`#${tab} .match-up .team-a`).innerHTML = teams[i];
+                        document.querySelector(`#${tab} .match-up .team-b`).innerHTML = teams[j + (j >= i)];
+                    };
+                </script>
+                <nav>
+                    <h2>Online-Games</h2>
+                    <button onclick="selectTab('roulette');">Roulette</button>
+                    <button onclick="selectTab('blackjack');">Blackjack</button>
+                    <button onclick="selectTab('poker');">Poker</button>
+                    <button onclick="selectTab('horse-racing');">Horse-Racing</button>
+                    <button onclick="selectTab('high-roller');">High-Roller</button>
 
 
-            <h2>Sports</h2>
-            <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
-            <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
-            <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
-            <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
-            <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
-            <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
-            <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
+                    <h2>Sports</h2>
+                    <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
+                    <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
+                    <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
+                    <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
+                    <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
+                    <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
+                    <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
+                    <h2>Sports</h2>
+                    <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
+                    <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
+                    <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
+                    <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
+                    <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
+                    <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
+                    <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
 
-<<<<<<< HEAD
+                    <h2>Forum</h2>
+                    <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
+                    <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
+                </nav>
+                <main>
+                    <div id="roulette" hidden>
+                        <h1>Roulette</h1>
+                        <!-- TODO Coming soon -->
+                    </div>
+                    <div id="blackjack" hidden>
+                        <h1>Blackjack</h1>
+                        <!-- TODO Not coming soon -->
+                    </div>
+                    <div id="poker" hidden>
+                        <h1>Poker</h1>
+                        <!-- TODO Not coming soon -->
+                    </div>
+                    <div id="horse-racing" hidden>
+                        <h1>Horse-Racing</h1>
+                        <!-- TODO Coming soon -->
+                    </div>
+                    <div id="football" hidden>
+                        <h1>Football</h1>
+                        <img src="imgs/soccer.png" alt="Football">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="basketball" hidden>
+                        <h1>Basketball</h1>
+                        <img src="imgs/basketball.png" alt="Basketball">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="baseball" hidden>
+                        <h1>Baseball</h1>
+                        <img src="imgs/baseball.png" alt="Baseball">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="american-football" hidden>
+                        <h1>American-Football</h1>
+                        <img src="imgs/football.png" alt="American-Football">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="tennis" hidden>
+                        <h1>Tennis</h1>
+                        <img src="imgs/tennis.png" alt="Tennis">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="cricket" hidden>
+                        <h1>Cricket</h1>
+                        <img src="imgs/cricket.png" alt="Cricket">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                    <div id="volleyball" hidden>
+                        <h1>Volleyball</h1>
+                        <img src="imgs/volleyball.png" alt="Volleyball">
+                        <span class="match-up">
+                <span class="team-a"></span> : <span class="team-b"></span>
+            </span>
+                    </div>
+                </main>
+
+                <footer>
+                    <div class="footer-container">
+                        <div class="footer-column">
+                            <h3 class="h3">Online-Games</h3>
+                            <button>Roulette</button>
+                            <button>Blackjack</button>
+                            <button>Poker</button>
+                            <button>Horse-Racing</button>
+                            <button>High-Roller</button>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3 class="h3">Sports</h3>
+                            <button>Football</button>
+                            <button>Basketball</button>
+                            <button>Baseball</button>
+                            <button>American-Football</button>
+                            <button>Tennis</button>
+                            <button>Cricket</button>
+                            <button>Volleyball</button>
+                        </div>
+
+                        <div class="footer-column">
+                            <h3 class="h3">Support</h3>
+                            <button class="show-on-hover"><a>Call us</a><a>+12 34 567 890</a></button>
+                            <button class="show-on-hover"><a>Contact us</a><a>stake@wintheworld.com</a></button>
+                            <button class="show-on-hover"><a>Addiction-Support</a><a class="a-footer" href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">verywellhealth</a></button>
+                            <button class="show-on-hover"><a>Law Regulations</a><a href="Law.html" class="a-footer" target="_blank">Law's</a></button>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <p>© 2025 Stake.com | All Rights Reserved </p> <br>
+                    <p>Stake is owned by Philipp, Vincent, Max and Sebastian., registration number 123456, registration address: Poplar Terrace 16, Little Switzerland. Contact us at stake@wintheworld.com. Payment agent company is Well Done Full Access VGX6+3R7, Valletta, Malta.
+                    </p> <br>
+                    <button class="show-on-hover"><a>Bitcoin</a><a href="https://finance.yahoo.com/chart/BTC-USD?fr=yhssrp_catchall&guce_referrer=aHR0cHM6Ly9zZWFyY2gueWFob28uY29tLw&guce_referrer_sig=AQAAACqvnuAOK-S_BqFlrmWxG8ksnlZJsS-7IXh9nGot-GpTZyh1UY7wTYmhCBmUFNJKbE56NIpSnp3dCDNgbtM09c7OxgFowDFVnWEjR_CG4_egxYsZfDTemSucx_pGFxtCdPTiAPYs78DLHugjexdD0LELw5xB9bnhHvMrkCvRK1oX&_guc_consent_skip=1751289647#eyJsYXlvdXQiOnsiaW50ZXJ2YWwiOjEsInBlcmlvZGljaXR5IjoxLCJ0aW1lVW5pdCI6Im1pbnV0ZSIsImNhbmRsZVdpZHRoIjoxLCJmbGlwcGVkIjpmYWxzZSwidm9sdW1lVW5kZXJsYXkiOnRydWUsImFkaiI6dHJ1ZSwiY3Jvc3NoYWlyIjp0cnVlLCJjaGFydFR5cGUiOiJtb3VudGFpbiIsImV4dGVuZGVkIjpmYWxzZSwibWFya2V0U2Vzc2lvbnMiOnt9LCJhZ2dyZWdhdGlvblR5cGUiOiJvaGxjIiwiY2hhcnRTY2FsZSI6ImxpbmVhciIsInN0dWRpZXMiOnsi4oCMdm9sIHVuZHLigIwiOnsidHlwZSI6InZvbCB1bmRyIiwiaW5wdXRzIjp7IlNlcmllcyI6InNlcmllcyIsImlkIjoi4oCMdm9sIHVuZHLigIwiLCJkaXNwbGF5Ijoi4oCMdm9sIHVuZHLigIwifSwib3V0cHV0cyI6eyJVcCBWb2x1bWUiOiIjMGRiZDZlZWUiLCJEb3duIFZvbHVtZSI6IiNmZjU1NDdlZSJ9LCJwYW5lbCI6ImNoYXJ0IiwicGFyYW1ldGVycyI6eyJjaGFydE5hbWUiOiJjaGFydCIsImVkaXRNb2RlIjp0cnVlfSwiZGlzYWJsZWQiOmZhbHNlfX0sInBhbmVscyI6eyJjaGFydCI6eyJwZXJjZW50IjoxLCJkaXNwbGF5IjoiQlRDLVVTRCIsImNoYXJ0TmFtZSI6ImNoYXJ0IiwiaW5kZXgiOjAsInlBeGlzIjp7Im5hbWUiOiJjaGFydCIsInBvc2l0aW9uIjpudWxsfSwieWF4aXNMSFMiOltdLCJ5YXhpc1JIUyI6WyJjaGFydCIsIuKAjHZvbCB1bmRy4oCMIl19fSwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjoxLCJiYXNlIjoidG9kYXkiLCJwZXJpb2RpY2l0eSI6eyJpbnRlcnZhbCI6MSwicGVyaW9kIjoxLCJ0aW1lVW5pdCI6Im1pbnV0ZSJ9LCJzaG93RXZlbnRzUXVvdGUiOnRydWUsImZvcmNlTG9hZCI6ZmFsc2UsInVzZUV4aXN0aW5nRGF0YSI6dHJ1ZX0sIm91dGxpZXJzIjpmYWxzZSwiYW5pbWF0aW9uIjp0cnVlLCJoZWFkc1VwIjp7InN0YXRpYyI6dHJ1ZSwiZHluYW1pYyI6ZmFsc2UsImZsb2F0aW5nIjpmYWxzZX0sImxpbmVXaWR0aCI6MiwiZnVsbFNjcmVlbiI6dHJ1ZSwic3RyaXBlZEJhY2tncm91bmQiOnRydWUsImNvbG9yIjoiIzAwODFmMiIsImNyb3NzaGFpclN0aWNreSI6ZmFsc2UsImRvbnRTYXZlUmFuZ2VUb0xheW91dCI6dHJ1ZSwic3ltYm9scyI6W3sic3ltYm9sIjoiQlRDLVVTRCIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJCVEMtVVNEIiwicXVvdGVUeXBlIjoiQ1JZUFRPQ1VSUkVOQ1kiLCJleGNoYW5nZVRpbWVab25lIjoiVVRDIiwicGVyaW9kMSI6MTc1MTI0MDk0MCwicGVyaW9kMiI6MTc1MTI5MjAwMH0sInBlcmlvZGljaXR5IjoxLCJpbnRlcnZhbCI6MSwidGltZVVuaXQiOiJtaW51dGUiLCJzZXRTcGFuIjp7Im11bHRpcGxpZXIiOjEsImJhc2UiOiJ0b2RheSIsInBlcmlvZGljaXR5Ijp7ImludGVydmFsIjoxLCJwZXJpb2QiOjEsInRpbWVVbml0IjoibWludXRlIn0sInNob3dFdmVudHNRdW90ZSI6dHJ1ZSwiZm9yY2VMb2FkIjpmYWxzZSwidXNlRXhpc3RpbmdEYXRhIjp0cnVlfX1dfSwiZXZlbnRzIjp7ImRpdnMiOnRydWUsInNwbGl0cyI6dHJ1ZSwidHJhZGluZ0hvcml6b24iOiJub25lIiwic2lnRGV2RXZlbnRzIjpbXX0sInByZWZlcmVuY2VzIjp7ImN1cnJlbnRQcmljZUxpbmUiOnRydWUsImRpc3BsYXlDcm9zc2hhaXJzV2l0aERyYXdpbmdUb29sIjpmYWxzZSwiZHJhZ2dpbmciOnsic2VyaWVzIjp0cnVlLCJzdHVkeSI6ZmFsc2UsInlheGlzIjp0cnVlfSwiZHJhd2luZ3MiOm51bGwsImhpZ2hsaWdodHNSYWRpdXMiOjEwLCJoaWdobGlnaHRzVGFwUmFkaXVzIjozMCwibWFnbmV0IjpmYWxzZSwiaG9yaXpvbnRhbENyb3NzaGFpckZpZWxkIjpudWxsLCJsYWJlbHMiOnRydWUsImxhbmd1YWdlIjpudWxsLCJ0aW1lWm9uZSI6IkFtZXJpY2EvTmV3X1lvcmsiLCJ3aGl0ZXNwYWNlIjowLCJ6b29tSW5TcGVlZCI6bnVsbCwiem9vbU91dFNwZWVkIjpudWxsLCJ6b29tQXRDdXJyZW50TW91c2VQb3NpdGlvbiI6ZmFsc2V9fQ==" target="_blank">Bitcoin-chart</a></button>
+
+
+
+                </footer>
+
+            </body>
+
             <h2>Forum</h2>
             <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
             <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
@@ -57,80 +221,6 @@
             <div id="roulette" hidden>
                 <h1>Roulette</h1>
                 <!-- TODO Coming soon -->
-=======
-        <h2>Forum</h2>
-        <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
-        <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
-    </nav>
-    <main>
-        <div id="football" hidden>
-            Football
-            <img src="Soccer.png" alt="Football">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="basketball" hidden>
-            Basketball
-            <img src="basketball.png" alt="Basketball">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="baseball" hidden>
-            Baseball
-            <img src="baseball.png" alt="Baseball">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="american-football" hidden>
-            American-Football
-            <img src="Football.png" alt="American-Football">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="tennis" hidden>
-            Tennis
-            <img src="tennis.png" alt="Tennis">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="cricket" hidden>
-            Cricket
-            <img src="cricket.png" alt="Cricket">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </div>
-        <div id="volleyball" hidden>
-            Volleyball
-            <img src="volleyball.png" alt="Volleyball">
-            <span class="match-up">
-                <span class="team-a"></span> : <span class="team-b"></span>
-            </span>
-        </id>
-         <id id="high-roller" hidden>
-            <img src="stop-hand-sign.jpg" alt="VIP-Access">
-            Access only for VIP customers!
-            <button id="VIP-Access">Get VIP customership</button>
-        </id>
-        </div>
-        
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-            <h3 class="h3">Online-Games</h3> 
-            <button type="text">Roulette</button> 
-            <button type="text">Blackjack</button> 
-            <button type="text">Poker</button> 
-            <button type="text">Horse-Racing</button> 
-            <button type="text">High-Roller</button> 
->>>>>>> 94e6ddb6c501c36ce6bc609471258f95b514326d
             </div>
             <div id="blackjack" hidden>
                 <h1>Blackjack</h1>
@@ -197,29 +287,29 @@
         <footer>
             <div class="footer-container">
                 <div class="footer-column">
-                <h3 class="h3">Online-Games</h3>
-                <button>Roulette</button>
-                <button>Blackjack</button>
-                <button>Poker</button>
-                <button>Horse-Racing</button>
-                <button>High-Roller</button>
+                    <h3 class="h3">Online-Games</h3>
+                    <button>Roulette</button>
+                    <button>Blackjack</button>
+                    <button>Poker</button>
+                    <button>Horse-Racing</button>
+                    <button>High-Roller</button>
                 </div>
                 <div class="footer-column">
-                <h3 class="h3">Sports</h3>
-                <button>Football</button>
-                <button>Basketball</button>
-                <button>Baseball</button>
-                <button>American-Football</button>
-                <button>Tennis</button>
-                <button>Cricket</button>
-                <button>Volleyball</button>
+                    <h3 class="h3">Sports</h3>
+                    <button>Football</button>
+                    <button>Basketball</button>
+                    <button>Baseball</button>
+                    <button>American-Football</button>
+                    <button>Tennis</button>
+                    <button>Cricket</button>
+                    <button>Volleyball</button>
                 </div>
                 <div class="footer-column">
-                <h3 class="h3">Support</h3>
-                <button class="show-on-hover"><a>Call us</a><a>+12 34 567 890</a></button>
-                <button class="show-on-hover"><a>Contact us</a><a>stake@wintheworld.com</a></button>
-                <button class="show-on-hover"><a>Addiction-Support</a><a class="a-footer" href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">verywellhealth</a></button>
-                <button class="show-on-hover"><a>Law Regulations</a><a href="Law.html" class="a-footer" target="_blank">Law's</a></button>
+                    <h3 class="h3">Support</h3>
+                    <button class="show-on-hover"><a>Call us</a><a>+12 34 567 890</a></button>
+                    <button class="show-on-hover"><a>Contact us</a><a>stake@wintheworld.com</a></button>
+                    <button class="show-on-hover"><a>Addiction-Support</a><a class="a-footer" href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">verywellhealth</a></button>
+                    <button class="show-on-hover"><a>Law Regulations</a><a href="Law.html" class="a-footer" target="_blank">Law's</a></button>
                 </div>
             </div>
             <div class="divider"></div>
