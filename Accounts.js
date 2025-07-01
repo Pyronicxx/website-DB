@@ -1,4 +1,4 @@
-let accounts = /*cookies.accounts ??*/ [
+let accounts = cookies.accounts ?? [
     {
         name: "Max",
         password: "Phonecase",
