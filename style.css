@@ -256,6 +256,9 @@ main div img {
     color: rgb(173, 27, 27);
     font-size: 100px;
     margin: auto;
+}
+
+#high-roller {
     background-image: url(stop-hand-sign.jpg);
 }
 
