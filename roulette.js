@@ -33,11 +33,11 @@ let betOnRoulette = type => {
     spinRoulette(result);
     setTimeout(() => {
         let win =
-            type == "straight" && result == betNum ? 36 : (
-                type == "high" || type == "low" ? (type == "high" == result > 18 ? 2 : 0) :
-                    type == "red" || type == "black" ? (type == "red" == redRouletteFields.indexOf(result) > -1 ? 2 : 0) :
-                        type == "even" || type == "odd" ? (+(type == "odd") == result % 2 ? 2 : 0) : 0
-            );
+            type == "straight" && result == betNum ? 36 : betNum ? (
+            type == "high" || type == "low" ? (type == "high" == result > 18 ? 2 : 0) :
+            type == "red" || type == "black" ? (type == "red" == redRouletteFields.indexOf(result) > -1 ? 2 : 0) :
+            type == "even" || type == "odd" ? (+(type == "odd") == result % 2 ? 2 : 0) : 0
+            ) : 0;
         document.querySelector("#roulette-result").innerText = win ? `You won BTC ${win * betAmount}!` : "You lost :L";
         [...document.querySelectorAll("#roulette-bet button")].forEach(button => button.disabled = false);
         account.balance += win * betAmount;
