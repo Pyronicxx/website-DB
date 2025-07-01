@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Pferderennen mit Einsatzsystem</title>
+  <style>
+    body { font-family: sans-serif; background: #eee; text-align: center; }
+    .bahn {
+      position: relative;
+      width: 80%;
+      margin: 30px auto;
+      height: 320px;
+      background: linear-gradient(to right, #6a9d3b 0%, #6a9d3b 100%); /* grasgrün */
+      border: 4px solid #333;
+    }
+    .bahn::before, .bahn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: white;
+      z-index: 1;
+    }
+    .bahn::before { left: 0; } /* Startlinie */
+    .bahn::after { right: 0; } /* Ziellinie */
+
+    .spur {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: white;
+      z-index: 0;
+    }
+    .pferd {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      z-index: 2;
+    }
+    .rot { background: red; top: 20px; }
+    .blau { background: blue; top: 90px; }
+    .gruen { background: green; top: 160px; }
+    .gelb { background: yellow; top: 230px; }
+    button { margin: 5px; padding: 10px 20px; font-size: 16px; }
+    #ergebnis, #guthabenanzeige { font-size: 20px; margin-top: 20px; }
+    input[type="number"] { width: 80px; padding: 5px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Pferderennen mit Einsatzsystem</h1>
+  <div id="guthabenanzeige">Guthaben: 1000 Punkte</div>
+
+  <p>Setze deinen Einsatz und wähle dein Pferd:</p>
+  <div>
+    Einsatz: <input type="number" id="einsatz" min="1" max="1000" value="100">
+  </div>
+  <div>
+    <button onclick="wette(0)">Rot</button>
+    <button onclick="wette(1)">Blau</button>
+    <button onclick="wette(2)">Grün</button>
+    <button onclick="wette(3)">Gelb</button>
+  </div>
+
+  <div class="bahn" id="bahn">
+    <div class="spur" style="top: 75px;"></div>
+    <div class="spur" style="top: 145px;"></div>
+    <div class="spur" style="top: 215px;"></div>
+
+    <div class="pferd rot" id="pferd0"></div>
+    <div class="pferd blau" id="pferd1"></div>
+    <div class="pferd gruen" id="pferd2"></div>
+    <div class="pferd gelb" id="pferd3"></div>
+  </div>
+
+  <div id="ergebnis"></div>
+
+  <script>
+    let gewettet = false;
+    let getipptesPferd = -1;
+    let guthaben = 1000;
+    const pferde = [
+      document.getElementById('pferd0'),
+      document.getElementById('pferd1'),
+      document.getElementById('pferd2'),
+      document.getElementById('pferd3')
+    ];
+
+    function aktualisiereGuthaben() {
+      document.getElementById('guthabenanzeige').innerText = `Guthaben: ${guthaben} Punkte`;
+    }
+
+    function wette(pferdIndex) {
+      if (gewettet) return;
+      const einsatz = parseInt(document.getElementById('einsatz').value);
+      if (einsatz <= 0 || einsatz > guthaben) {
+        alert("Ungültiger Einsatz!");
+        return;
+      }
+      getipptesPferd = pferdIndex;
+      gewettet = true;
+      document.getElementById('ergebnis').innerText = `Du hast ${einsatz} Punkte auf Pferd ${pferdIndex+1} gesetzt. Rennen startet!`;
+      starten(einsatz);
+    }
+
+    function starten(einsatz) {
+      const ziel = document.getElementById('bahn').clientWidth - 60;
+      let gewonnen = false;
+
+      const intervall = setInterval(() => {
+        for (let i = 0; i < pferde.length; i++) {
+          let aktuellerLinks = parseFloat(pferde[i].style.left) || 0;
+          let schritt = Math.random() * 10;
+          aktuellerLinks += schritt;
+          pferde[i].style.left = aktuellerLinks + "px";
+
+          if (!gewonnen && aktuellerLinks >= ziel) {
+            gewonnen = true;
+            clearInterval(intervall);
+            let sieger = i;
+            if (sieger === getipptesPferd) {
+              let gewinn = einsatz * 2;
+              guthaben += gewinn;
+              document.getElementById('ergebnis').innerText = `Glückwunsch! Pferd ${sieger+1} hat gewonnen. Du hast ${gewinn} Punkte gewonnen.`;
+            } else {
+              guthaben -= einsatz;
+              document.getElementById('ergebnis').innerText = `Leider verloren. Pferd ${sieger+1} hat gewonnen. Dein Einsatz von ${einsatz} Punkten ist weg.`;
+            }
+            aktualisiereGuthaben();
+          }
+        }
+      }, 50);
+    }
+  </script>
+</body>
+</html>
