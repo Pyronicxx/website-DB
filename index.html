@@ -111,6 +111,7 @@
                 <div id="ergebnis"></div>
 
                 <script>
+                    const pferdFarben = ["Red horse", "Blue horse", "Green horse", "Yellow horse"];
                     let gewettet = false;
                     let getipptesPferd = -1;
                     let guthaben = 100;
@@ -134,7 +135,7 @@
                     }
                     getipptesPferd = pferdIndex;
                     gewettet = true;
-                    document.getElementById('ergebnis').innerText = `You bet ${einsatz} Bitcoin on horse ${pferdIndex+1}. The race begins!`;
+                    document.getElementById('ergebnis').innerText = `You bet ${einsatz} Bitcoin on the ${pferdFarben[pferdIndex]}. The race begins!`;
                     starten(einsatz);
                     }
 
@@ -144,28 +145,33 @@
 
                     const intervall = setInterval(() => {
                         for (let i = 0; i < pferde.length; i++) {
-                        let aktuellerLinks = parseFloat(pferde[i].style.left) || 0;
-                        let schritt = Math.random() * 10;
-                        aktuellerLinks += schritt;
-                        pferde[i].style.left = aktuellerLinks + "px";
+                            let aktuellerLinks = parseFloat(pferde[i].style.left) || 0;
+                            let schritt = Math.random() * 10;
+                            aktuellerLinks += schritt;
+                            pferde[i].style.left = aktuellerLinks + "px";
 
-                        if (!gewonnen && aktuellerLinks >= ziel) {
-                            gewonnen = true;
-                            clearInterval(intervall);
-                            let sieger = i;
-                            if (sieger === getipptesPferd) {
-                            let gewinn = einsatz * 2;
-                            guthaben += gewinn;
-                            document.getElementById('ergebnis').innerText = `Congratulations! Horse ${sieger+1} won. You won ${gewinn} bitcoin.`;
-                            } else {
-                            guthaben -= einsatz;
-                            document.getElementById('ergebnis').innerText = `You lost. Horse ${sieger+1} won.`;
+                            if (!gewonnen && aktuellerLinks >= ziel) {
+                                gewonnen = true;
+                                clearInterval(intervall);
+                                let sieger = i;
+                                if (sieger === getipptesPferd) {
+                                    let gewinn = einsatz * 2;
+                                    guthaben += gewinn;
+                                    document.getElementById('ergebnis').innerText = `Congratulations! The ${pferdFarben[sieger]} won. You won ${gewinn} Bitcoin.`;
+                                } else {
+                                    guthaben -= einsatz;
+                                    document.getElementById('ergebnis').innerText = `You lost. The ${pferdFarben[sieger]} won.`;
+                                }
+                                aktualisiereGuthaben();
+                                for (let j = 0; j < pferde.length; j++) {
+                                    pferde[j].style.left = "0px";
+                                }
+                                gewettet = false;
                             }
-                            aktualisiereGuthaben();
-                        }
                         }
                     }, 50);
-                    }
+                }
+
                 </script>
 
             </div>
