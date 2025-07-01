@@ -10,8 +10,9 @@ let visitorAccount = {
     balance: 100,
 };
 
-let account = visitorAccount;
+let account = accounts.find(account => account.name == cookies.account) ?? visitorAccount;
 let updateAccount = () => {
+    cookies.account = account.name;
     cookies.accounts = accounts;
     (document.querySelector("#account-name") ?? {}).innerText =account.name;
     (document.querySelector("#balance") ?? {}).innerText = `BTC ${account.balance}`;
