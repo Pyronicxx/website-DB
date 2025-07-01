@@ -232,6 +232,7 @@ main div img {
 
 #high-roller {
     background: url("imgs/stop-hand-sign.png");
+    background-size: cover;
 }
 .bahn {
       position: relative;
