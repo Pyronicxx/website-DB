@@ -226,6 +226,15 @@ main div {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+#high-roller {
+    height: 100px;
+    color: rgb(174, 13, 13);
+    background-image: url(stop-hand-sign.jpg);
+}
+
+
+
 main div.active {
     display: block; 
 }
@@ -246,3 +255,4 @@ main div img {
 .match-up .team-b {
     font-weight: bold;
 }
+
