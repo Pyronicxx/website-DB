@@ -251,3 +251,9 @@ main div img {
 .match-up .team-b {
     font-weight: bold;
 }
+
+#high-roller h1 {
+    color: rgb(173, 27, 27);
+    font-size: 100px;
+    background-image: url(stop-hand-sign.jpg);
+}
