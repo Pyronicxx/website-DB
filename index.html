@@ -88,7 +88,7 @@
 
                 <p>Select your horse and place your bet:</p>
                 <div>
-                    Einsatz: <input id="input_pferderenen" type="number" id="einsatz" min="1" max="1000" value="100">
+                    Your bet: <input class="input_pferderenen" type="number" id="einsatz" min="1" max="1000" value="100">
                 </div>
                 <div>
                     <button class="button_pferderennen" onclick="wette(0)">Red</button>
@@ -122,7 +122,7 @@
                     ];
 
                     function aktualisiereGuthaben() {
-                    document.getElementById('guthabenanzeige').innerText = `Guthaben: ${guthaben} Punkte`;
+                    document.getElementById('guthabenanzeige').innerText = `You have ${guthaben} Bitcoin`;
                     }
 
                     function wette(pferdIndex) {

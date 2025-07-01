@@ -275,4 +275,4 @@ main div img {
     .gelb { background: yellow; top: 230px; }
     .button_pferderennen { margin: 5px; padding: 10px 20px; font-size: 16px; }
     #ergebnis, #guthabenanzeige { font-size: 20px; margin-top: 20px; }
-    #input_pferderennen { width: 80px; padding: 5px; font-size: 16px; }
+    .input_pferderennen { width: 80px; padding: 5px; font-size: 16px; }
