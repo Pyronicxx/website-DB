@@ -21,6 +21,7 @@
         let selectTab = tab => {
             [...document.querySelectorAll("main > *")].forEach(e => e.hidden = true);
             document.querySelector("#" + tab).hidden = false;
+            window.scrollTo({top:0}) 
         }
     </script>
     <nav>
