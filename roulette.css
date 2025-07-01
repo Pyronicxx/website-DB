@@ -25,18 +25,15 @@
 }
 #roulette-stats {
     display: flex;
-    justify-content: space-between;
-    width: 480px;
-    margin: auto;
-    color: #EEE;
-}
-#roulette-stats {
-    display: flex;
     justify-content: space-evenly;
-    width: 480px;
+    width: 520px;
     padding-bottom: 5px;
     margin: auto;
     color: #EEE;
+}
+#roulette-stats > * {
+    width: 50%;
+    text-align: center;
 }
 #roulette-bet-amount-box {
     box-sizing: border-box;

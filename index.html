@@ -23,12 +23,14 @@
                 document.querySelector(`#${tab}`).hidden = false;
                 window.scrollTo({top: 0});
             };
-            let selectSportTab = (tab, ...teams) => {
-                selectTab(tab);
+            let selectSportTab = (button, image, ...teams) => {
+                selectTab("sport");
                 let i = Math.floor(Math.random() * teams.length);
                 let j = Math.floor(Math.random() * (teams.length - 1));
-                document.querySelector(`#${tab} .match-up .team-a`).innerHTML = teams[i];
-                document.querySelector(`#${tab} .match-up .team-b`).innerHTML = teams[j + (j >= i)];
+                document.querySelector("#sport-title").innerText = button.innerText;
+                document.querySelector("#sport-image").src = image;
+                document.querySelector(`#sport .match-up .team-a`).innerHTML = teams[i];
+                document.querySelector(`#sport .match-up .team-b`).innerHTML = teams[j + (j >= i)];
             };
         </script>
         <span>
@@ -40,13 +42,13 @@
             <button onclick="selectTab('horse-racing');">Horse-Racing</button>
             <button onclick="selectTab('high-roller');">High-Roller</button>
             <h2>Sports</h2>
-            <button onclick="selectSportTab('football', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
-            <button onclick="selectSportTab('basketball', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
-            <button onclick="selectSportTab('baseball', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
-            <button onclick="selectSportTab('american-football', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
-            <button onclick="selectSportTab('tennis', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
-            <button onclick="selectSportTab('cricket', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
-            <button onclick="selectSportTab('volleyball', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
+            <button onclick="selectSportTab(this, 'imgs/football.png', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
+            <button onclick="selectSportTab(this, 'imgs/basketball.png', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
+            <button onclick="selectSportTab(this, 'imgs/baseball.png', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
+            <button onclick="selectSportTab(this, 'imgs/america-football.png', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
+            <button onclick="selectSportTab(this, 'imgs/tennis.png', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
+            <button onclick="selectSportTab(this, 'imgs/cricket.png', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
+            <button onclick="selectSportTab(this, 'imgs/volleyball.png', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
             <h2>Forum</h2>
             <a href="https://reddsub.com/r/gambling/" target="_blank">gambling-community</a> <br>
             <a href="https://www.verywellhealth.com/gambling-addiction-8547848" target="_blank">addiction-support</a> <br>
@@ -60,7 +62,7 @@
                 </div>
                 <div id="roulette-stats">
                     <span id="roulette-bet-amount"><span id="roulette-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
-                    <span id="roulette-result">You lost :L</span>
+                    <span id="roulette-result"></span>
                 </div>
                 <div id="roulette-bet">
                     <span><input type="number" min="0" max="36" step="1" value="0"><button onclick="betOnRoulette('straight');">Straight</button></span>
@@ -89,57 +91,9 @@
                 <img src="imgs/stop-hand-sign.jpg" alt="High Roller">
                 <a href="membership.html">Get our Stake VIP membership</a>
             </div>
-            <div class="main_div" id="football" hidden>
-                <h1>Football</h1>
-                <img src="imgs/soccer.png" alt="Football">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="basketball" hidden>
-                <h1>Basketball</h1>
-                <img src="imgs/basketball.png" alt="Basketball">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="baseball" hidden>
-                <h1>Baseball</h1>
-                <img src="imgs/baseball.png" alt="Baseball">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="american-football" hidden>
-                <h1>American-Football</h1>
-                <img src="imgs/football.png" alt="American-Football">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="tennis" hidden>
-                <h1>Tennis</h1>
-                <img src="imgs/tennis.png" alt="Tennis">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="cricket" hidden>
-                <h1>Cricket</h1>
-                <img src="imgs/cricket.png" alt="Cricket">
-                <br>
-                <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
-                </span>
-            </div>
-            <div class="main_div" id="volleyball" hidden>
-                <h1>Volleyball</h1>
-                <img src="imgs/volleyball.png" alt="Volleyball">
+            <div id="sport" hidden>
+                <h1 id="sport-title"></h1>
+                <img id="sport-image" src="imgs/football.png">
                 <br>
                 <span class="match-up">
                     <span class="team-a"></span> : <span class="team-b"></span>
