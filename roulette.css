@@ -4,11 +4,13 @@
 
 #roulette-wheel {
     position: relative;
-    width: 800px;
-    height: 800px;
+    width: min(800px, 100vw - 250px);
+    height: min(800px, 100vw - 250px);
 }
 #roulette-img {
-    width: 800px;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
     pointer-events: none;
 }
 #roulette-ball {

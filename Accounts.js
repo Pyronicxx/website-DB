@@ -2,11 +2,8 @@ let account = cookies.account || {
     name: "Visitor",
     balance: 100,
 };
-
-document.querySelector("#balance").innerText = `BTC ${account.balance}`;
-
-let setBalance = balance => {
-    account.balance = balance;
+let updateAccount = () => {
     cookies.account = account;
     document.querySelector("#balance").innerText = `BTC ${account.balance}`;
 };
+updateAccount();
