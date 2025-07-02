@@ -5,13 +5,7 @@ let accounts = cookies.accounts ?? [
         balance: 100,
     },
 ];
-let accounts = cookies.accounts ?? [
-    {
-        name: "GambleGod",
-        password: "Laptop_1",
-        balance: 1000,
-    },
-];
+
 let visitorAccount = {
     name: "Visitor",
     balance: 100,
