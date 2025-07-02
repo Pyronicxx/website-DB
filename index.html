@@ -102,96 +102,49 @@
             </div>
             <div id="horse-racing" hidden>
                 <h1>Horse-Racing</h1>
-                <div id="guthabenanzeige">You have 100 Bitcoin</div>
-
                 <p class="p_pferderennen">Select your horse and place your bet:</p>
                 <div>
                     <input class="input_pferderenen" type="number" id="einsatz" min="1" max="10000" value="10">
                 </div>
-                <div class="button-container">
-                    <button class="button_pferderennen" onclick="wette(0)">Red</button>
-                    <button class="button_pferderennen" onclick="wette(1)">Blue</button>
-                    <button class="button_pferderennen" onclick="wette(2)">Green</button>
-                    <button class="button_pferderennen" onclick="wette(3)">Yellow</button>
+                <div id="horse-race-bet" class="button-container">
+                    <button class="button_pferderennen" onclick="horseRaceBet(0);">Red</button>
+                    <button class="button_pferderennen" onclick="horseRaceBet(1);">Blue</button>
+                    <button class="button_pferderennen" onclick="horseRaceBet(2);">Green</button>
+                    <button class="button_pferderennen" onclick="horseRaceBet(3);">Yellow</button>
                 </div>
-
-                <div class="bahn" id="bahn">
-                    <div class="spur" style="top: 75px;"></div>
-                    <div class="spur" style="top: 145px;"></div>
-                    <div class="spur" style="top: 215px;"></div>
-
-                    <div class="pferd rot" id="pferd0"></div>
-                    <div class="pferd blau" id="pferd1"></div>
-                    <div class="pferd gruen" id="pferd2"></div>
-                    <div class="pferd gelb" id="pferd3"></div>
+                <div id="horse-race-lanes" class="bahn">
+                    <div class="horse-race-lane spur" style="top: 75px;"></div>
+                    <div class="horse-race-lane spur" style="top: 145px;"></div>
+                    <div class="horse-race-lane spur" style="top: 215px;"></div>
+                    <div class="horse red pferd rot" id="pferd0"></div>
+                    <div class="horse blue pferd blau" id="pferd1"></div>
+                    <div class="horse green pferd gruen" id="pferd2"></div>
+                    <div class="horse yellow pferd gelb" id="pferd3"></div>
                 </div>
-
-                <div id="ergebnis"></div>
-
+                <div id="horse-race-result" style="text-align: center;"></div>
                 <script>
-                    const pferdFarben = ["Red horse", "Blue horse", "Green horse", "Yellow horse"];
-                    let gewettet = false;
-                    let getipptesPferd = -1;
-                    let guthaben = 100;
-                    const pferde = [
-                    document.getElementById('pferd0'),
-                    document.getElementById('pferd1'),
-                    document.getElementById('pferd2'),
-                    document.getElementById('pferd3')
-                    ];
-
-                    function aktualisiereGuthaben() {
-                    document.getElementById('guthabenanzeige').innerText = `You have ${guthaben} Bitcoin`;
-                    }
-
-                    function wette(pferdIndex) {
-                    if (gewettet) return;
-                    const einsatz = parseInt(document.getElementById('einsatz').value);
-                    if (einsatz <= 0 || einsatz > guthaben) {
-                        alert("Bet not possible!");
-                        return;
-                    }
-                    getipptesPferd = pferdIndex;
-                    gewettet = true;
-                    document.getElementById('ergebnis').innerText = `You bet ${einsatz} Bitcoin on the ${pferdFarben[pferdIndex]}. The race begins!`;
-                    starten(einsatz);
-                    }
-
-                    function starten(einsatz) {
-                    const ziel = document.getElementById('bahn').clientWidth - 60;
-                    let gewonnen = false;
-
-                    const intervall = setInterval(() => {
-                        for (let i = 0; i < pferde.length; i++) {
-                            let aktuellerLinks = parseFloat(pferde[i].style.left) || 0;
-                            let schritt = Math.random() * 10;
-                            aktuellerLinks += schritt;
-                            pferde[i].style.left = aktuellerLinks + "px";
-
-                            if (!gewonnen && aktuellerLinks >= ziel) {
-                                gewonnen = true;
+                    let horseRaceBet = betOn => {
+                        let horses = [...document.querySelectorAll(".horse")];
+                        let horseNames = ["red horse", "blue horse", "green horse", "yellow horse"];
+                        [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = true);
+                        let betAmount = Math.min(Math.max(document.getElementById("einsatz").value, 0), account.balance);
+                        document.querySelector("#horse-race-result").innerText = `You bet BTC ${betAmount} on the ${horseNames[betOn]}. The race begins!`;
+                        account.balance -= betAmount;
+                        updateAccount();
+                        let positions = horses.map(() => 0);
+                        let intervall = setInterval(() => {
+                            horses.forEach((horse, i) => horse.style.left = `${positions[i] += Math.random() * 5}px`);
+                            let first = positions.reduce((first, pos, i) => pos > positions[first] ? i : first, 0);
+                            if (positions[first] > document.getElementById("horse-race-lanes").clientWidth) {
                                 clearInterval(intervall);
-                                let sieger = i;
-                                if (sieger === getipptesPferd) {
-                                    let gewinn = einsatz * 4;
-                                    guthaben += gewinn;
-                                    document.getElementById('ergebnis').innerText = `Congratulations! The ${pferdFarben[sieger]} won. You won ${gewinn} Bitcoin.`;
-                                } else {
-                                    guthaben -= einsatz;
-                                    document.getElementById('ergebnis').innerText = `You lost. The ${pferdFarben[sieger]} won.`;
-                                }
-                                aktualisiereGuthaben();
-                                for (let j = 0; j < pferde.length; j++) {
-                                    pferde[j].style.left = "0px";
-                                }
-                                gewettet = false;
+                                account.balance += betAmount * 3.5 * (betOn == first);
+                                document.querySelector("#horse-race-result").innerText = betOn == first ? `Congratulations! The ${horseNames[first]} won. You won BTC ${betAmount * 3}.` : `You lost. The ${horseNames[first]} won.`;
+                                [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.false = true);
+                                saveAccount();
                             }
-                        }
-                    }, 50);
-                }
-
+                        }, 20);
+                    };
                 </script>
-
             </div>
             <div id="high-roller" hidden>
                 <h1>Access for VIP customers only</h1>
