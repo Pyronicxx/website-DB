@@ -379,5 +379,7 @@ main div img {
 }
 
 #logo2 {
-    height: 50px;
+    height: 60px;
+    vertical-align: middle;
+    cursor: pointer;
 }
