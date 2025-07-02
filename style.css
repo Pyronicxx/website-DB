@@ -360,6 +360,10 @@ main div img {
 }
 
 #werbung {
+    z-index: 3;
+
+}
+
+#sprechblase {
     z-index: 2;
-    
 }
