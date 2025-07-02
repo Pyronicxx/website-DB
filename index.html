@@ -141,7 +141,7 @@
                                 clearInterval(intervall);
                                 account.balance += betAmount * 3.5 * (betOn == first);
                                 document.querySelector("#horse-race-result").innerText = betOn == first ? `Congratulations! The ${horseNames[first]} won. You won BTC ${betAmount * 3}.` : `You lost. The ${horseNames[first]} won.`;
-                                [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.false = true);
+                                [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = false);
                                 saveAccount();
                             }
                         }, 20);
