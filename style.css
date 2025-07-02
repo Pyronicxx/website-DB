@@ -351,8 +351,10 @@ main div img {
 
 #logo {
     height: 100%;
+    z-index: 1;
 }
 
 #bwler {
     object-fit: fill;
+    z-index: 1;
 }
