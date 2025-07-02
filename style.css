@@ -348,3 +348,8 @@ main div img {
     position: relative;
     height: calc(100vw - 250px);
 }
+
+#logo {
+    background: url("imgs/stake-logo.png");
+    background-size: cover;
+}
