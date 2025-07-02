@@ -279,8 +279,8 @@ main div img {
 
 
 #VIPbutton {
-    position: fixed;
-    bottom: 10px;
+    margin-bottom: 0;
+    position: relative;
     left: 10px;
 
     display: inline-block;
