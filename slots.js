@@ -23,19 +23,19 @@ let scoreSlots = symbols => {
     for (let x = 0; x < 5; x++) {
         if (symbols[x][0] == symbols[x][1] && symbols[x][1] == symbols[x][2]) {
             score += slotsSymbols[symbols[x][0]][1];
-            text += `3 ${symbols[x][0]}s in column ${x + 1}<br>`;
+            text += `<br>3 ${symbols[x][0]}s in column ${x + 1}`;
         }
     }
     for (let y = 0; y < 3; y++) {
         if (symbols[0][y] == symbols[1][y] && symbols[1][y] == symbols[2][y] && symbols[2][y] == symbols[3][y] && symbols[3][y] == symbols[4][y]) {
             score += slotsSymbols[symbols[2][y]][1] * 5;
-            text += `5 ${symbols[2][y]}s in row ${y + 1}<br>`;
+            text += `<br>5 ${symbols[2][y]}s in row ${y + 1}`;
         } else if (symbols[1][y] == symbols[2][y] && symbols[2][y] == symbols[3][y] && (symbols[0][y] == symbols[1][y] || symbols[3][y] == symbols[4][y])) {
             score += slotsSymbols[symbols[2][y]][1] * 3;
-            text += `4 ${symbols[2][y]}s in row ${y + 1}<br>`;
+            text += `<br>4 ${symbols[2][y]}s in row ${y + 1}`;
         } else if (symbols[1][y] == symbols[2][y] && (symbols[0][y] == symbols[1][y] || symbols[2][y] == symbols[3][y]) || symbols[2][y] == symbols[3][y] && symbols[3][y] == symbols[4][y]) {
             score += slotsSymbols[symbols[2][y]][1];
-            text += `3 ${symbols[2][y]}s in row ${y + 1}<br>`;
+            text += `<br>3 ${symbols[2][y]}s in row ${y + 1}`;
         }
     }
     return [score, text];
@@ -68,6 +68,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
         html += "</span>";
     }
     document.querySelector("#slots-rolls").innerHTML = html;
+    document.querySelector("#slots-bet").disabled = true;
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < t * tMults[i]; j++) {
             setTimeout(() => {
@@ -78,13 +79,14 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
     }
     setTimeout(() => {
         let score = scoreSlots(symbols);
-        document.querySelector("#slots-result").innerHTML = score[0] ? `${score[1]}You won BTC ${score[0] * betAmount / 20}!` : "You didn't win anything :L";
+        document.querySelector("#slots-result").innerHTML = score[0] ? `You won BTC ${score[0] * betAmount / 20}!${score[1]}` : "You didn't win anything :L";
+        document.querySelector("#slots-bet").disabled = false;
         account.balance += score[0] * betAmount / 20;
         saveAccount();
     }, t * 20);
 };
 
-let simulateSlots = (count = 1e4, advantage = 0) => { // 17.86917
+let simulateSlots = (count = 1e4, advantage = 0) => {
     let score = 0;
     for (let i = 0; i < count; i++) {
         let symbols = [];
@@ -98,4 +100,4 @@ let simulateSlots = (count = 1e4, advantage = 0) => { // 17.86917
         score += scoreSlots(symbols)[0];
     }
     console.log(score / count);
-};
+}; // 17.86917
