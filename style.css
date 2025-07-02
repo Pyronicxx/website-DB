@@ -335,3 +335,7 @@ main div img {
     box-shadow: 0 4px 6px;
     transition: background-color 0.3s ease;
 }
+
+#high-roller {
+   height: calc(100vw - 250px);
+}
