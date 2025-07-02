@@ -9,30 +9,30 @@
         <script src="Accounts.js"></script>
     </head>
     <body>
-        <div>
-            <script>
-                let register = () => {
-                    let name = document.querySelector("#name").value;
-                    let password = document.querySelector("#password").value;
-                    let repeatPassword = document.querySelector("#repeat-password").value;
-                    document.querySelector("#error").hidden = false;
-                    if (password != repeatPassword) {
-                        document.querySelector("#error").innerHTML = "Passwords do not match";
-                    } else if (accounts.find(account => account.name == name)) {
-                        document.querySelector("#error").innerHTML = "Username already taken";
-                    } else if (!/^[^@]+@[^@]+[.][^@]+$/.test(document.querySelector("#email").value)) {
-                        document.querySelector("#error").innerHTML = "Invalid E-Mail";
-                    } else if (!document.querySelector("#birthdate").value || new Date(document.querySelector("#birthdate").value) - new Date(new Date().setFullYear(new Date().getFullYear() - 18)) > 0) {
-                        document.querySelector("#error").innerHTML = "Invalid birthdate<br>You must be at least 18";
-                    } else {
-                        document.querySelector("#error").hidden = true;
-                        account = name;
-                        accounts.push({name, passwordHash: hashPassword(name, password), balance: 100});
-                        saveAccount();
-                        window.location = "index.html";
-                    }
-                };
-            </script>
+        <script>
+            let register = () => {
+                let name = document.querySelector("#name").value;
+                let password = document.querySelector("#password").value;
+                let repeatPassword = document.querySelector("#repeat-password").value;
+                document.querySelector("#error").hidden = false;
+                if (password != repeatPassword) {
+                    document.querySelector("#error").innerHTML = "Passwords do not match";
+                } else if (accounts.find(account => account.name == name)) {
+                    document.querySelector("#error").innerHTML = "Username already taken";
+                } else if (!/^[^@]+@[^@]+[.][^@]+$/.test(document.querySelector("#email").value)) {
+                    document.querySelector("#error").innerHTML = "Invalid E-Mail";
+                } else if (!document.querySelector("#birthdate").value || new Date(document.querySelector("#birthdate").value) - new Date(new Date().setFullYear(new Date().getFullYear() - 18)) > 0) {
+                    document.querySelector("#error").innerHTML = "Invalid birthdate<br>You must be at least 18";
+                } else {
+                    document.querySelector("#error").hidden = true;
+                    account = name;
+                    accounts.push({name, passwordHash: hashPassword(name, password), balance: 100});
+                    saveAccount();
+                    window.location = "index.html";
+                }
+            };
+        </script>
+        <form>
             <input id="name" type="text" placeholder="Username">
             <input id="email" type="email" placeholder="E-Mail Address">
             <input id="password" type="password" placeholder="Password">
@@ -40,9 +40,9 @@
             <input id="birthdate" type="date">
             <span>You must be at least 18 years old</span>
             <input id="credit-card" type="text" placeholder="Credit card number">
-            <button onclick="register();">Register</button>
-            <button onclick="account = visitorAccount; saveAccount(); window.location = 'index.html';">Login as visitor</button>
+            <button onclick="event.preventDefault(); register();">Register</button>
+            <button onclick="event.preventDefault(); account = visitorAccount; saveAccount(); window.location = 'index.html';">Login as visitor</button>
             <span id="error" hidden></span>
-        </div>
+        </form>
     </body>
 </html>
