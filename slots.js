@@ -112,4 +112,4 @@ let simulateSlots = (count = 1e4, advantage = 0) => {
         score += scoreSlots(symbols)[0];
     }
     console.log(score / count);
-}; // 17.86917
+}; // ~18.4
