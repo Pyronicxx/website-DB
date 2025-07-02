@@ -41,6 +41,6 @@ let betOnRoulette = type => {
         document.querySelector("#roulette-result").innerText = win ? `You won BTC ${win * betAmount}!` : "You lost :L";
         [...document.querySelectorAll("#roulette-bet button")].forEach(button => button.disabled = false);
         account.balance += win * betAmount;
-        updateAccount();
+        saveAccount();
     }, 4000);
 };

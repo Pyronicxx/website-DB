@@ -34,9 +34,12 @@ let hashPassword = (name = "Visitor", password = "", project = "website-DB") => 
 
 let account = accounts.find(account => account.name == cookies.account) ?? visitorAccount;
 let updateAccount = () => {
-    cookies.account = account.name;
-    cookies.accounts = accounts;
     (document.querySelector("#account-name") ?? {}).innerText =account.name;
     (document.querySelector("#balance") ?? {}).innerText = `BTC ${account.balance}`;
+};
+let saveAccount = () => {
+    updateAccount();
+    cookies.account = account.name;
+    cookies.accounts = accounts;
 };
 updateAccount();

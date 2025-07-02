@@ -16,7 +16,7 @@
                 document.querySelector("#error").hidden = true;
                 account = accounts.find(account => account.name == name && account.passwordHash == hashPassword(name, password));
                 if (account) {
-                    updateAccount();
+                    saveAccount();
                     window.location = "index.html";
                 } else {
                     document.querySelector("#error").hidden = false;
@@ -29,7 +29,7 @@
             <input type="text" id="password" placeholder="Password">
             <button onclick="login();">Login</button>
             <span id="error" hidden>Incorrect username or password</span>
-            <button onclick="account = visitorAccount; updateAccount(); window.location = 'index.html';">Login as visitor</button>
+            <button onclick="account = visitorAccount; saveAccount(); window.location = 'index.html';">Login as visitor</button>
         </span>
     </body>
 </html>

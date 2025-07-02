@@ -83,7 +83,11 @@
             <div id="slots" hidden>
                 <h1>Slots</h1>
                 <span id="slots-rolls"></span>
-                <button onclick="spinSlots();">Spin</button>
+                <div id="slots-stats">
+                    <span id="slots-bet-amount"><span id="slots-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
+                    <span id="slots-bet"><button onclick="spinSlots();">Spin</button></span>
+                </div>
+                <div id="slots-result"></div>
                 <script src="slots.js"></script>
                 <link rel="stylesheet" href="slots.css">
             </div>
