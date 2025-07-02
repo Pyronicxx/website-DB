@@ -13,6 +13,7 @@
             let login = () => {
                 let name = document.querySelector("#name").value;
                 let password = document.querySelector("#password").value;
+                document.querySelector("#error").hidden = true;
                 account = accounts.find(account => account.name == name && account.password == password);
                 if (account) {
                     updateAccount();
