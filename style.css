@@ -276,3 +276,19 @@ main div img {
     .button_pferderennen { margin: 5px; padding: 10px 20px; font-size: 16px; }
     #ergebnis, #guthabenanzeige { font-size: 20px; margin-top: 20px; }
     .input_pferderennen { width: 80px; padding: 5px; font-size: 16px; }
+
+
+#VIPbutton {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: black;
+    color: red;
+    border-radius: 6px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px;
+    transition: background-color 0.3s ease;
+}
