@@ -325,9 +325,8 @@ footer {
 
 #VIPbutton {
     margin: auto;
-    
-
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding: 20px 30px;
     background-color: black;
     color: red;
