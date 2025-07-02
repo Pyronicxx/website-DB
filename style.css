@@ -235,47 +235,90 @@ main div img {
     background-size: cover;
 }
 .bahn {
-      position: relative;
-      width: 80%;
-      margin: 30px auto;
-      height: 320px;
-      background: linear-gradient(to right, #6a9d3b 0%, #6a9d3b 100%); /* grasgrün */
-      border: 4px solid #333;
-    }
-    .bahn::before, .bahn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: white;
-      z-index: 1;
-    }
-    .bahn::before { left: 0; } 
-    .bahn::after { right: 0; } 
+    position: relative;
+    width: 80%;
+    margin: 30px auto;
+    height: 320px;
+    background: linear-gradient(to right, #6a9d3b 0%, #6a9d3b 100%); /* grasgrün */
+    border: 4px solid #333;
+}
+.bahn::before, .bahn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: white;
+    z-index: 1;
+}
+.bahn::before { left: 0; } 
+.bahn::after { right: 0; } 
 
-    .spur {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: white;
-      z-index: 0;
-    }
-    .pferd {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      border-radius: 10px;
-      z-index: 2;
-    }
-    .rot { background: red; top: 20px; }
-    .blau { background: blue; top: 90px; }
-    .gruen { background: green; top: 160px; }
-    .gelb { background: yellow; top: 230px; }
-    .button_pferderennen { margin: 5px; padding: 10px 20px; font-size: 16px; }
-    #ergebnis, #guthabenanzeige { font-size: 20px; margin-top: 20px; }
-    .input_pferderennen { width: 80px; padding: 5px; font-size: 16px; }
+.spur {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: white;
+    z-index: 0;
+}
+.pferd {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    z-index: 2;
+}
+.rot { 
+    background: red; top: 20px;
+}
+.blau {
+    background: blue; top: 90px; 
+}
+.gruen {
+    background: green; top: 160px; 
+}
+.gelb {
+    background: yellow; top: 230px;
+}
+.button_pferderennen {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: #fff;
+}
+.button_pferderennen:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+#ergebnis, #guthabenanzeige {
+    font-size: 20px; margin-top: 20px;
+}
+.input_pferderennen {
+    width: 80px; padding: 5px; font-size: 16px;
+}
+.p_pferderennen {
+    font-size: 1.2rem;
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input_pferderenen {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    width: 150px;
+    font-size: 1rem;
+    border: 2px solid #555;
+    border-radius: 6px;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
 
 
 #VIPbutton {
