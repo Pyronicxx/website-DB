@@ -358,3 +358,8 @@ main div img {
     object-fit: fill;
     z-index: 1;
 }
+
+#werbung {
+    z-index: 2;
+    
+}
