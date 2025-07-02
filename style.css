@@ -226,6 +226,7 @@ main div img {
 
 #high-roller h1 {
     color: rgb(2, 14, 13);
+    text-shadow: 0 0 10px black;
     font-size: 100px;
     text-align: center;
 }
