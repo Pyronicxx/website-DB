@@ -355,13 +355,13 @@ main div img {
 }
 
 #bwler {
-    object-fit: fill;
+    height: 100%;
+    right: 0px;
     z-index: 1;
 }
 
 #werbung {
     z-index: 3;
-
 }
 
 #sprechblase {
