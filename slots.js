@@ -1,7 +1,7 @@
 let slotsSymbols = {
-    Cherry: [10, 20],
-    Lemon: [8, 15],
-    Plum: [6, 10],
+    Cherry: [10, 15],
+    Lemon: [8, 10],
+    Plum: [6, 5],
     Bell: [4, 50],
     Clover: [2, 100],
     Coin: [1, 150],
@@ -23,19 +23,31 @@ let scoreSlots = symbols => {
     for (let x = 0; x < 5; x++) {
         if (symbols[x][0] == symbols[x][1] && symbols[x][1] == symbols[x][2]) {
             score += slotsSymbols[symbols[x][0]][1];
-            text += `<br>3 ${symbols[x][0]}s in column ${x + 1}`;
+            text += `<br>+ ${slotsSymbols[symbols[x][0]][1]} (3 ${symbols[x][0]}s)`;
         }
     }
     for (let y = 0; y < 3; y++) {
         if (symbols[0][y] == symbols[1][y] && symbols[1][y] == symbols[2][y] && symbols[2][y] == symbols[3][y] && symbols[3][y] == symbols[4][y]) {
             score += slotsSymbols[symbols[2][y]][1] * 5;
-            text += `<br>5 ${symbols[2][y]}s in row ${y + 1}`;
+            text += `<br>+ ${slotsSymbols[symbols[2][y]][1] * 5} (5 ${symbols[2][y]}s)`;
         } else if (symbols[1][y] == symbols[2][y] && symbols[2][y] == symbols[3][y] && (symbols[0][y] == symbols[1][y] || symbols[3][y] == symbols[4][y])) {
             score += slotsSymbols[symbols[2][y]][1] * 3;
-            text += `<br>4 ${symbols[2][y]}s in row ${y + 1}`;
+            text += `<br>+ ${slotsSymbols[symbols[2][y]][1] * 3} (4 ${symbols[2][y]}s)`;
         } else if (symbols[1][y] == symbols[2][y] && (symbols[0][y] == symbols[1][y] || symbols[2][y] == symbols[3][y]) || symbols[2][y] == symbols[3][y] && symbols[3][y] == symbols[4][y]) {
             score += slotsSymbols[symbols[2][y]][1];
-            text += `<br>3 ${symbols[2][y]}s in row ${y + 1}`;
+            text += `<br>+ ${slotsSymbols[symbols[2][y]][1]} (3 ${symbols[2][y]}s)`;
+        }
+    }
+    for (let x = 0; x < 3; x++) {
+        if (symbols[x][0] == symbols[x + 1][1] && symbols[x + 1][1] == symbols[x + 2][2]) {
+            score += slotsSymbols[symbols[x][0]][1];
+            text += `<br>+ ${slotsSymbols[symbols[x][0]][1]} (3 ${symbols[x][0]}s)`;
+        }
+    }
+    for (let x = 0; x < 3; x++) {
+        if (symbols[x][2] == symbols[x + 1][1] && symbols[x + 1][1] == symbols[x + 2][0]) {
+            score += slotsSymbols[symbols[x][2]][1];
+            text += `<br>+ ${slotsSymbols[symbols[x][2]][1]} (3 ${symbols[x][2]}s)`;
         }
     }
     return [score, text];
@@ -79,7 +91,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
     }
     setTimeout(() => {
         let score = scoreSlots(symbols);
-        document.querySelector("#slots-result").innerHTML = score[0] ? `You won BTC ${score[0] * betAmount / 20}!${score[1]}` : "You didn't win anything :L";
+        document.querySelector("#slots-result").innerHTML = score[0] ? `You won BTC ${score[0] * betAmount / 20}! ${score[0]} Score:${score[1]}` : "You didn't win anything :L";
         document.querySelector("#slots-bet *").disabled = false;
         account.balance += score[0] * betAmount / 20;
         saveAccount();
