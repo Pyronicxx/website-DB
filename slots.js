@@ -54,7 +54,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
         html += "<span>";
         vs.push(0);
         for (let j = 0; j < t * tMults[i]; j++) {
-            vs[i] -= s * (1 - (j / t / tMults[i]) ** 2);
+            vs[i] -= s * (1 - (j / t / tMults[i]) ** 10);
         }
         for (let j = 0; j < 3; j++) {
             let symbol = pickSlotSymbol(advantage);
@@ -68,19 +68,19 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
         html += "</span>";
     }
     document.querySelector("#slots-rolls").innerHTML = html;
-    document.querySelector("#slots-bet").disabled = true;
+    document.querySelector("#slots-bet *").disabled = true;
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < t * tMults[i]; j++) {
             setTimeout(() => {
-                vs[i] += s * (1 - (j / t / tMults[i]) ** 2);
-                document.querySelector("#slots-rolls").children[i].style.transform = `translateY(${vs[i] * 100}px)`;
+                vs[i] += s * (1 - (j / t / tMults[i]) ** 10);
+                [...document.querySelector("#slots-rolls").children[i].children].forEach(img => img.style.transform = `translateY(${Math.round(vs[i] * 1e9) / 1e7}%)`);
             }, j * 20);
         }
     }
     setTimeout(() => {
         let score = scoreSlots(symbols);
         document.querySelector("#slots-result").innerHTML = score[0] ? `You won BTC ${score[0] * betAmount / 20}!${score[1]}` : "You didn't win anything :L";
-        document.querySelector("#slots-bet").disabled = false;
+        document.querySelector("#slots-bet *").disabled = false;
         account.balance += score[0] * betAmount / 20;
         saveAccount();
     }, t * 20);
