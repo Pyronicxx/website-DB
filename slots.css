@@ -4,19 +4,19 @@
 
 #slots-rolls {
     display: block;
-    width: 500px;
-    height: 300px;
+    width: min(100vw - 250px, 1000px);
+    height: min((100vw - 250px) / 5 * 3, 600px);
     margin: auto;
     overflow: hidden;
 }
 #slots-rolls span {
     display: inline-flex;
     flex-direction: column;
-    width: 100px;
+    width: 20%;
 }
 #slots-rolls img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: min((100vw - 250px) / 5, 200px);
     margin: 0;
 }
 

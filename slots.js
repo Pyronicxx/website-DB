@@ -42,7 +42,7 @@ let scoreSlots = symbols => {
 };
 
 let spinSlots = (advantage = 0, t = 200, s = .35) => {
-    let betAmount = Math.min(Math.max(document.querySelector("#roulette-bet-amount input").value, 0), account.balance);
+    let betAmount = Math.min(Math.max(document.querySelector("#slots-bet-amount input").value, 0), account.balance);
     account.balance -= betAmount;
     updateAccount();
     let tMults = [.4, .55, .7, .85, 1];
