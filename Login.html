@@ -14,7 +14,7 @@
                 let name = document.querySelector("#name").value;
                 let password = document.querySelector("#password").value;
                 document.querySelector("#error").hidden = true;
-                account = accounts.find(account => account.name == name && account.password == password);
+                account = accounts.find(account => account.name == name && account.passwordHash == hashPassword(name, password));
                 if (account) {
                     updateAccount();
                     window.location = "index.html";
