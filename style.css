@@ -386,5 +386,6 @@ main div img {
 }
 
 #werbungdavid {
-    height: 100%;
+    max-width: 1300px;
+    margin: 20px 0;
 }
