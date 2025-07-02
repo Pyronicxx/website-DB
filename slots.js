@@ -66,7 +66,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
         html += "<span>";
         vs.push(0);
         for (let j = 0; j < t * tMults[i]; j++) {
-            vs[i] -= s * (1 - (j / t / tMults[i]) ** 10);
+            vs[i] -= s * (1 - (j / t / tMults[i]) ** 5);
         }
         for (let j = 0; j < 3; j++) {
             let symbol = pickSlotSymbol(advantage);
@@ -84,7 +84,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < t * tMults[i]; j++) {
             setTimeout(() => {
-                vs[i] += s * (1 - (j / t / tMults[i]) ** 10);
+                vs[i] += s * (1 - (j / t / tMults[i]) ** 5);
                 [...document.querySelector("#slots-rolls").children[i].children].forEach(img => img.style.transform = `translateY(${Math.round(vs[i] * 1e9) / 1e7}%)`);
             }, j * 20);
         }

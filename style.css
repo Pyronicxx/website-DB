@@ -207,15 +207,6 @@ footer {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main div.active {
-    display: block; 
-}
-
-main div img {
-    max-width: 200px;
-    margin: 20px 0;
-}
-
 .match-up {
     display: inline-block;
     font-size: 1.5rem;
