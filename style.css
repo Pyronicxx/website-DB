@@ -350,6 +350,5 @@ main div img {
 }
 
 #logo {
-    background: url("imgs/stake-logo.png");
-    background-size: 100%;
+    width: 100%;
 }
