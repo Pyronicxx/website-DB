@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="register.css">
-</head>
-<body>
-    <form>
-        <label for="Username">Please enter your username</label>
-        <input type="text" id="Username">
-
-        <label for="Email">Please enter your E-Mail</label>
-        <input type="email" id="Email">
-
-        <label for="Password">Please enter your password</label>
-        <input type="password" id="Password">
-
-        <label for="Password1">Please validate your password</label>
-        <input type="password" id="Password1">
-
-        <label for="age">Please enter your birthdate</label>
-        <input type="date" id="age">
-
-        <span>You must be at least 18 years old</span>
-
-        <label for="creditcard">Please enter your credit card number</label>
-        <input type="text" id="creditcard">
-
-        <button type="submit">Register</button>
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+        <link rel="stylesheet" href="login.css">
+        <script src="Cookies.js"></script>
+        <script src="Accounts.js"></script>
+    </head>
+    <body>
+        <div>
+            <script>
+                let register = () => {
+                    let name = document.querySelector("#name").value;
+                    let password = document.querySelector("#password").value;
+                    let repeatPassword = document.querySelector("#repeat-password").value;
+                    document.querySelector("#error").hidden = false;
+                    if (password != repeatPassword) {
+                        document.querySelector("#error").innerHTML = "Passwords do not match";
+                    } else if (accounts.find(account => account.name == name)) {
+                        document.querySelector("#error").innerHTML = "Username already taken";
+                    } else if (!/^[^@]+@[^@]+[.][^@]+$/.test(document.querySelector("#email").value)) {
+                        document.querySelector("#error").innerHTML = "Invalid E-Mail";
+                    } else if (!document.querySelector("#birthdate").value || new Date(document.querySelector("#birthdate").value) - new Date(new Date().setFullYear(new Date().getFullYear() - 18)) > 0) {
+                        document.querySelector("#error").innerHTML = "Invalid birthdate<br>You must be at least 18";
+                    } else {
+                        document.querySelector("#error").hidden = true;
+                        account = name;
+                        accounts.push({name, passwordHash: hashPassword(name, password), balance: 100});
+                        saveAccount();
+                        window.location = "index.html";
+                    }
+                };
+            </script>
+            <input id="name" type="text" placeholder="Username">
+            <input id="email" type="email" placeholder="E-Mail Address">
+            <input id="password" type="password" placeholder="Password">
+            <input id="repeat-password" type="password" placeholder="Repeat password">
+            <input id="birthdate" type="date">
+            <span>You must be at least 18 years old</span>
+            <input id="credit-card" type="text" placeholder="Credit card number">
+            <button onclick="register();">Register</button>
+            <button onclick="account = visitorAccount; saveAccount(); window.location = 'index.html';">Login as visitor</button>
+            <span id="error" hidden></span>
+        </div>
+    </body>
 </html>

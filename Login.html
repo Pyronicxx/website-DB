@@ -13,23 +13,23 @@
             let login = () => {
                 let name = document.querySelector("#name").value;
                 let password = document.querySelector("#password").value;
-                document.querySelector("#error").hidden = true;
                 account = accounts.find(account => account.name == name && account.passwordHash == hashPassword(name, password));
                 if (account) {
                     saveAccount();
                     window.location = "index.html";
                 } else {
                     document.querySelector("#error").hidden = false;
+                    document.querySelector("#error").innerHTML = "Incorrect username or password";
                     account = visitorAccount;
                 }
             };
         </script>
-        <span>
-            <input type="text" id="name" placeholder="Username">
-            <input type="text" id="password" placeholder="Password">
+        <div>
+            <input id="name" type="text" placeholder="Username">
+            <input id="password" type="password" placeholder="Password">
             <button onclick="login();">Login</button>
-            <span id="error" hidden>Incorrect username or password</span>
             <button onclick="account = visitorAccount; saveAccount(); window.location = 'index.html';">Login as visitor</button>
-        </span>
+            <span id="error" hidden></span>
+        </div>
     </body>
 </html>

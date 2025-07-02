@@ -1,75 +1,62 @@
 body {
-    background-color: #121212;
-    color: #f5f5f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: #111;
+    color: #EEE;
+    font-family: 'SF Pro Display', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-span {
+div {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: #1e1e1e;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    width: 320px;
-    max-width: 90%;
-    text-align: center;
     box-sizing: border-box;
+    max-width: 90%;
+    width: 400px;
+    padding: 40px;
+    gap: 20px;
+    border-radius: 12px;
+    background: #222;
+    text-align: center;
 }
 
-input[type="text"] {
+input {
     padding: 12px;
     border: 2px solid #555;
     border-radius: 8px;
-    background-color: #2a2a2a;
-    color: #f5f5f5;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    background-color: #2A2A2A;
+    color: #EEE;
+    font-size: 16px;
+    transition: border .2s;
 }
 
-input[type="text"]:focus {
-    border-color: #ffcc00;
+input:focus {
+    border-color: #FC0;
     outline: none;
 }
 
 button {
     padding: 12px;
-    font-size: 1rem;
+    background: #FC0;
     border: none;
     border-radius: 8px;
+    outline: 2px solid #FC00;
+    color: #222;
+    font-size: 16px;
     cursor: pointer;
-    background-color: #ffcc00;
-    color: #1e1e1e;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: outline .2s;
 }
 
-button:hover {
-    background-color: #e6b800;
-    transform: scale(1.05);
+button:is(:hover, :focus) {
+    outline: 2px solid #FC0;
 }
 
 #error {
-    color: #ff4d4d;
-    font-weight: bold;
-    font-size: 0.95rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    max-width: 100%;              
-    box-sizing: border-box;       
-    word-wrap: break-word;        
-    text-align: center;          
-    background-color: #1e1e1e; 
-    padding: 12px;                
-    border-radius: 8px;           
-    margin-top: 0;               
-}
-
-#error:not([hidden]) {
-    opacity: 1;
+    margin-top: 15px;
+    text-align: center;
+    color: #F55;
 }
