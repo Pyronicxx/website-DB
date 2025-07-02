@@ -379,7 +379,7 @@ main div img {
 }
 
 #logo2 {
-    height: 60px;
+    height: 100%;
     margin-left: 20px;
     vertical-align: middle;
     cursor: pointer;
