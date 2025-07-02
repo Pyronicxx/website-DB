@@ -33,6 +33,7 @@ let spinSlots = (advantage = 0, t = 200, s = .35) => {
             let symbol = pickSlotSymbol(advantage);
             html += `<img src="imgs/${pickSlotSymbol(advantage)}.png">`;
             symbolColumn.push(symbol);
+            console.log(symbol);
         }
         for (let j = 0; j < Math.ceil(-vs[i]); j++) {
             html += `<img src="imgs/${pickSlotSymbol(advantage)}.png">`;
