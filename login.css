@@ -20,6 +20,7 @@ span {
     width: 320px;
     max-width: 90%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 input[type="text"] {
@@ -59,6 +60,14 @@ button:hover {
     font-size: 0.95rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+    max-width: 100%;              
+    box-sizing: border-box;       
+    word-wrap: break-word;        
+    text-align: center;          
+    background-color: #1e1e1e; 
+    padding: 12px;                
+    border-radius: 8px;           
+    margin-top: 0;               
 }
 
 #error:not([hidden]) {
