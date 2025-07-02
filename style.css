@@ -389,3 +389,10 @@ main div img {
     max-width: 1300px;
     margin: 20px 0;
 }
+
+#admark {
+    z-index: 4;
+    color: red;#
+    margin-right: 0;
+    margin-top: 0;
+}
