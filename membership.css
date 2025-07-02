@@ -24,7 +24,7 @@ span {
     box-sizing: border-box;
 }
 
-span img {
+img {
     width: 100px;
     height: auto;
 }
