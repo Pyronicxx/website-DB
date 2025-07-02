@@ -339,7 +339,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-#high-roller {
+#pfeil1 {
     position: relative;
     height: calc(100vw - 250px);
 }
