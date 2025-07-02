@@ -2,7 +2,7 @@ let accounts = cookies.accounts ?? [
     {
         name: "MaxH",
         passwordHash: 4427849782227161,
-        balance: 100,
+        balance: 1000,
     },
     {
         name: "MaxB",
