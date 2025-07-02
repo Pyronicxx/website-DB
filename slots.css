@@ -1,0 +1,16 @@
+#slots-rolls {
+    display: block;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+}
+#slots-rolls span {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100px;
+}
+#slots-rolls img {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+}

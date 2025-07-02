@@ -37,6 +37,7 @@
             <nav>
             <h2>Online-Games</h2>
             <button onclick="selectTab('roulette');">Roulette</button>
+            <button onclick="selectTab('slots');">Slots</button>
             <button onclick="selectTab('blackjack');">Blackjack</button>
             <button onclick="selectTab('poker');">Poker</button>
             <button onclick="selectTab('horse-racing');">Horse-Racing</button>
@@ -76,6 +77,13 @@
                 <span id="result"></span>
                 <script src="roulette.js"></script>
                 <link rel="stylesheet" href="roulette.css">
+            </div>
+            <div id="slots" hidden>
+                <h1>Slots</h1>
+                <span id="slots-rolls"></span>
+                <button onclick="spinSlots();">Spin</button>
+                <script src="slots.js"></script>
+                <link rel="stylesheet" href="slots.css">
             </div>
             <div id="blackjack" hidden>
                 <h1>Blackjack</h1>
