@@ -351,5 +351,5 @@ main div img {
 
 #logo {
     background: url("imgs/stake-logo.png");
-    background-size: cover;
+    background-size: 100%;
 }
