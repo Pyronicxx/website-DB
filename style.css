@@ -375,16 +375,13 @@ footer {
     text-align: right;
 }
 
-<<<<<<< HEAD
 #sport {
     text-align: center;
 }
-=======
 .match-up {
     display: flex;
     justify-content: center;
 }
->>>>>>> 025f8ae3dcfdbfb25148c0ee7c888312f54af2aa
 
 .match-up > * {
     display: flex;
