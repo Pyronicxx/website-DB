@@ -24,14 +24,18 @@
                 document.querySelector(`#${tab}`).hidden = false;
                 window.scrollTo({top: 0});
             };
-            let selectSportTab = (button, image, ...teams) => {
+            let selectSportTab = (button, image, teams = {}) => {
                 selectTab("sport");
-                let i = Math.floor(Math.random() * teams.length);
-                let j = Math.floor(Math.random() * (teams.length - 1));
+                let iA = Math.floor(Math.random() * Object.keys(teams).length);
+                let iB = Math.floor(Math.random() * (Object.keys(teams).length - 1));
+                let tA = Object.keys(teams)[iA];
+                let tB = Object.keys(teams)[iB + (iB >= iA)];
                 document.querySelector("#sport-title").innerText = button.innerText;
                 document.querySelector("#sport-image").src = image;
-                document.querySelector(`#sport .match-up .team-a`).innerHTML = teams[i];
-                document.querySelector(`#sport .match-up .team-b`).innerHTML = teams[j + (j >= i)];
+                document.querySelector(`#sport .match-up .team-a .name`).innerHTML = tA;
+                document.querySelector(`#sport .match-up .team-b .name`).innerHTML = tB;
+                document.querySelector(`#sport .match-up .team-a .return`).innerHTML = `${Math.round(teams[tB] / teams[tA] * 1e3) / 1e3 + 1}`;
+                document.querySelector(`#sport .match-up .team-b .return`).innerHTML = `${Math.round(teams[tA] / teams[tB] * 1e3) / 1e3 + 1}`;
             };
         </script>
 
@@ -45,13 +49,13 @@
             <button onclick="selectTab('horse-racing');">Horse-Racing</button>
             <button onclick="selectTab('high-roller');">High-Roller</button>
             <h2>Sports</h2>
-            <button onclick="selectSportTab(this, 'imgs/football.png', 'HSV', 'Eintracht Frankfurt', 'Borussia Dortmund', 'FC Bayern München', 'Hertha BSC');">Football</button>
-            <button onclick="selectSportTab(this, 'imgs/basketball.png', 'OKC', 'Los Angeles Lakers', 'Golden State Warriors', 'Boston Celtics', 'Denver Nuggets');">Basketball</button>
-            <button onclick="selectSportTab(this, 'imgs/baseball.png', 'New York Yankees', 'Boston Red Sox', 'LA Dodgers', 'New York Mets', 'Miami Marlins');">Baseball</button>
-            <button onclick="selectSportTab(this, 'imgs/america-football.png', 'Kansas City Chiefs', 'New England Patriots', 'Miami Dolphins', 'LA Rams', 'Philadelphia Eagles');">American-Football</button>
-            <button onclick="selectSportTab(this, 'imgs/tennis.png', 'Rafael Nadal', 'Roger Federer', 'Alexander Zverev', 'Carlos Alcaraz', 'Nick Kyrgios');">Tennis</button>
-            <button onclick="selectSportTab(this, 'imgs/cricket.png', 'Royal Chall Bangalore', 'Delhi Daredevils', 'Mumbai Indians', 'Chennai Super Kings', 'Kings XI Punjab');">Cricket</button>
-            <button onclick="selectSportTab(this, 'imgs/volleyball.png', 'Germany', 'Japan', 'Italy', 'USA', 'Brazil');">Volleyball</button>
+            <button onclick="selectSportTab(this, 'imgs/football.png', {'HSV': 1, 'Eintracht Frankfurt': 1, 'Borussia Dortmund': 1, 'FC Bayern München': 1, 'Hertha BSC': 1});">Football</button>
+            <button onclick="selectSportTab(this, 'imgs/basketball.png', {'OKC': 1, 'Los Angeles Lakers': 1, 'Golden State Warriors': 1, 'Boston Celtics': 1, 'Denver Nuggets': 1});">Basketball</button>
+            <button onclick="selectSportTab(this, 'imgs/baseball.png', {'New York Yankees': 1, 'Boston Red Sox': 1, 'LA Dodgers': 1, 'New York Mets': 1, 'Miami Marlins': 1});">Baseball</button>
+            <button onclick="selectSportTab(this, 'imgs/america-football.png', {'Kansas City Chiefs': 1, 'New England Patriots': 1, 'Miami Dolphins': 1, 'LA Rams': 1, 'Philadelphia Eagles': 1});">American-Football</button>
+            <button onclick="selectSportTab(this, 'imgs/tennis.png', {'Rafael Nadal': 1, 'Roger Federer': 1, 'Alexander Zverev': 1, 'Carlos Alcaraz': 1, 'Nick Kyrgios': 1});">Tennis</button>
+            <button onclick="selectSportTab(this, 'imgs/cricket.png', {'Royal Chall Bangalore': 1, 'Delhi Daredevils': 1, 'Mumbai Indians': 1, 'Chennai Super Kings': 1, 'Kings XI Punjab': 1});">Cricket</button>
+            <button onclick="selectSportTab(this, 'imgs/volleyball.png', {'Germany': 1, 'Japan': 1, 'Italy': 1, 'USA': 1, 'Brazil': 1});">Volleyball</button>
             <h2>Forum</h2>
             <a href="https://reddsub.com/r/gambling" target="_blank">Gambling Community</a>
             <a href="https://verywellhealth.com/gambling-addiction-8547848" target="_blank">Addiction Support</a>
@@ -159,7 +163,7 @@
                 <br>
                 <h3>Todays match-up:</h3>
                 <span class="match-up">
-                    <span class="team-a"></span> : <span class="team-b"></span>
+                    <span class="team-a"><a class="name"></a><a class="return"></a></span> : <span class="team-b"><a class="name"></a><a class="return"></a></span>
                 </span>
             </div>
         </main>
