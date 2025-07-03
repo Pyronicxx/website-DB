@@ -7,10 +7,12 @@ let slotsSymbols = {
     Coin: [1, 150],
 };
 
-let pickSlotSymbol = (advantage = 0) => {
-    let rand = Math.floor(Math.random() * Object.entries(slotsSymbols).reduce((sum, [, value]) => sum + value[0] * (value[1] * advantage + 1), 0));
+let slotsAdvantage = 0;
+
+let pickSlotSymbol = () => {
+    let rand = Math.floor(Math.random() * Object.entries(slotsSymbols).reduce((sum, [, value]) => sum + value[0], 0));
     for (let [symbol, value] of Object.entries(slotsSymbols)) {
-        rand -= value[0] * (value[1] * advantage + 1);
+        rand -= value[0];
         if (rand < 0) {
             return symbol;
         }
@@ -53,30 +55,39 @@ let scoreSlots = symbols => {
     return [score, text];
 };
 
-let spinSlots = (advantage = 0, t = 200, s = .35) => {
+let spinSlots = (t = 200, s = .35) => {
     let betAmount = Math.min(Math.max(document.querySelector("#slots-bet-amount input").value, 0), account.balance);
     account.balance -= betAmount;
     updateAccount();
     let tMults = [.4, .55, .7, .85, 1];
-    let symbols = [];
+    let symbols;
+    for (let i = 0; i < slotsAdvantage + 1; i++) {
+        let symbols2 = [];
+        for (let j = 0; j < 5; j++) {
+            let symbolColumn = [];
+            for (let k = 0; k < 3; k++) {
+                symbolColumn.push(pickSlotSymbol());
+            }
+            symbols2.push(symbolColumn);
+        }
+        if (!symbols || scoreSlots(symbols2)[0] > scoreSlots(symbols)[0]) {
+            symbols = symbols2;
+        }
+    }
     let html = "";
     let vs = [];
     for (let i = 0; i < 5; i++) {
-        let symbolColumn = [];
         html += "<span>";
         vs.push(0);
         for (let j = 0; j < t * tMults[i]; j++) {
             vs[i] -= s * (1 - (j / t / tMults[i]) ** 5);
         }
         for (let j = 0; j < 3; j++) {
-            let symbol = pickSlotSymbol(advantage);
-            html += `<img src="imgs/${symbol}.png">`;
-            symbolColumn.push(symbol);
+            html += `<img src="imgs/${symbols[i][j]}.png">`;
         }
         for (let j = 0; j < Math.ceil(-vs[i]); j++) {
-            html += `<img src="imgs/${pickSlotSymbol(advantage)}.png">`;
+            html += `<img src="imgs/${pickSlotSymbol()}.png">`;
         }
-        symbols.push(symbolColumn);
         html += "</span>";
     }
     document.querySelector("#slots-rolls").innerHTML = html;
