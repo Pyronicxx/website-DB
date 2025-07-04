@@ -45,13 +45,31 @@ header a {
     transition: background .3s;
 }
 
+#toggle-nav {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background: #444;
+    border: none;
+    border-radius: 20px;
+    color: #EEE;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 body > span {
     display: flex;
     overflow: hidden;
 }
 
 main {
-    width: calc(100vw - 250px);
+    --main-width: calc(100vw - 250px);
+    width: var(--main-width);
+}
+nav[hidden] + main {
+    --main-width: 100vw;
 }
 
 main > div {
@@ -178,12 +196,12 @@ footer {
     margin: 20px 0;
     background: #444;
 }
-.h3{
+.h3 {
    color: #ffcc00;
     margin-bottom: 10px;
     font-size: 1.5rem; 
 }
-.a-footer{
+.a-footer {
     display: block;
     color: #00bfff;
     text-decoration: none;

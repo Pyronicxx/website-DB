@@ -4,8 +4,8 @@
 
 #roulette-wheel {
     position: relative;
-    width: min(650px, 100vw - 250px);
-    height: min(650px, 100vw - 250px);
+    width: min(var(--main-width), 650px);
+    height: min(var(--main-width), 650px);
     margin: auto;
 }
 #roulette-img {

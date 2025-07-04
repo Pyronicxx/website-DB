@@ -9,6 +9,7 @@
     </head>
     <body>
         <header>
+            <button id="toggle-nav" onclick="document.querySelector('nav').hidden = !document.querySelector('nav').hidden;">=</button>
             <h1>Online Casino & Slots</h1>
             <h2>Spin the Globe, Win the World - Play Anywhere, Anytime</h2>
             <a href="Login">Login</a>
@@ -38,135 +39,134 @@
                 document.querySelector(`#sport .match-up .team-b .return`).innerHTML = `${Math.round(teams[tA] / teams[tB] * 1e3) / 1e3 + 1}`;
             };
         </script>
-
         <span>
             <nav>
-            <h2>Online-Games</h2>
-            <button onclick="selectTab('roulette');">Roulette</button>
-            <button onclick="selectTab('slots');">Slots</button>
-            <button onclick="selectTab('blackjack');">Blackjack</button>
-            <button onclick="selectTab('poker');">Poker</button>
-            <button onclick="selectTab('horse-racing');">Horse-Racing</button>
-            <button onclick="selectTab('high-roller');">High-Roller</button>  
-            <h2>Sports</h2>
-            <button onclick="selectSportTab(this, 'imgs/football.png', {'HSV': 2, 'Eintracht Frankfurt': 4, 'Borussia Dortmund': 4, 'FC Bayern München': 5, 'Hertha BSC': 1});">Football</button>
-            <button onclick="selectSportTab(this, 'imgs/basketball.png', {'OKC': 4, 'Los Angeles Lakers': 5, 'Golden State Warriors': 4, 'Boston Celtics': 5, 'Denver Nuggets': 3});">Basketball</button>
-            <button onclick="selectSportTab(this, 'imgs/baseball.png', {'New York Yankees': 5, 'Boston Red Sox': 3, 'LA Dodgers': 4, 'New York Mets': 2, 'Miami Marlins': 1});">Baseball</button>
-            <button onclick="selectSportTab(this, 'imgs/america-football.png', {'Kansas City Chiefs': 4, 'New England Patriots': 5, 'Miami Dolphins': 2, 'LA Rams': 1, 'Philadelphia Eagles': 3});">American-Football</button>
-            <button onclick="selectSportTab(this, 'imgs/tennis.png', {'Rafael Nadal': 4, 'Roger Federer': 5, 'Alexander Zverev': 1, 'Carlos Alcaraz': 5, 'Nick Kyrgios': 3});">Tennis</button>
-            <button onclick="selectSportTab(this, 'imgs/cricket.png', {'Royal Chall Bangalore': 3, 'Delhi Daredevils': 1, 'Mumbai Indians': 2, 'Chennai Super Kings': 4, 'Kings XI Punjab': 5});">Cricket</button>
-            <button onclick="selectSportTab(this, 'imgs/volleyball.png', {'Germany': 5, 'Japan': 4, 'Italy': 2, 'USA': 4, 'Brazil': 3});">Volleyball</button>
-            <h2>Forum</h2>
-            <a href="https://reddsub.com/r/gambling" target="_blank">Gambling Community</a>
-            <a href="https://verywellhealth.com/gambling-addiction-8547848" target="_blank">Addiction Support</a>
-        </nav>
-        <main>    
-            <div id="home">
-                <img id="werbungdavid" src="werbung.png" alt="Advertisement"> 
-                <p id="admark">#ad</p>
-            </div>
-            <div id="roulette" hidden>
-                <h1>Roulette</h1>
-                <div id="roulette-wheel">
-                    <img id="roulette-img" src="imgs/roulette-wheel.png">
-                    <div id="roulette-ball"></div>
+                <h2>Online-Games</h2>
+                <button onclick="selectTab('roulette');">Roulette</button>
+                <button onclick="selectTab('slots');">Slots</button>
+                <button onclick="selectTab('blackjack');">Blackjack</button>
+                <button onclick="selectTab('poker');">Poker</button>
+                <button onclick="selectTab('horse-racing');">Horse-Racing</button>
+                <button onclick="selectTab('high-roller');">High-Roller</button>
+                <h2>Sports</h2>
+                <button onclick="selectSportTab(this, 'imgs/football.png', {'HSV': 2, 'Eintracht Frankfurt': 4, 'Borussia Dortmund': 4, 'FC Bayern München': 5, 'Hertha BSC': 1});">Football</button>
+                <button onclick="selectSportTab(this, 'imgs/basketball.png', {'OKC': 4, 'Los Angeles Lakers': 5, 'Golden State Warriors': 4, 'Boston Celtics': 5, 'Denver Nuggets': 3});">Basketball</button>
+                <button onclick="selectSportTab(this, 'imgs/baseball.png', {'New York Yankees': 5, 'Boston Red Sox': 3, 'LA Dodgers': 4, 'New York Mets': 2, 'Miami Marlins': 1});">Baseball</button>
+                <button onclick="selectSportTab(this, 'imgs/america-football.png', {'Kansas City Chiefs': 4, 'New England Patriots': 5, 'Miami Dolphins': 2, 'LA Rams': 1, 'Philadelphia Eagles': 3});">American-Football</button>
+                <button onclick="selectSportTab(this, 'imgs/tennis.png', {'Rafael Nadal': 4, 'Roger Federer': 5, 'Alexander Zverev': 1, 'Carlos Alcaraz': 5, 'Nick Kyrgios': 3});">Tennis</button>
+                <button onclick="selectSportTab(this, 'imgs/cricket.png', {'Royal Chall Bangalore': 3, 'Delhi Daredevils': 1, 'Mumbai Indians': 2, 'Chennai Super Kings': 4, 'Kings XI Punjab': 5});">Cricket</button>
+                <button onclick="selectSportTab(this, 'imgs/volleyball.png', {'Germany': 5, 'Japan': 4, 'Italy': 2, 'USA': 4, 'Brazil': 3});">Volleyball</button>
+                <h2>Forum</h2>
+                <a href="https://reddsub.com/r/gambling" target="_blank">Gambling Community</a>
+                <a href="https://verywellhealth.com/gambling-addiction-8547848" target="_blank">Addiction Support</a>
+            </nav>
+            <main>
+                <div id="home">
+                    <img id="werbungdavid" src="werbung.png" alt="Advertisement">
+                    <p id="admark">#ad</p>
                 </div>
-                <div id="roulette-stats">
-                    <span id="roulette-bet-amount"><span id="roulette-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
-                    <span id="roulette-result"></span>
+                <div id="roulette" hidden>
+                    <h1>Roulette</h1>
+                    <div id="roulette-wheel">
+                        <img id="roulette-img" src="imgs/roulette-wheel.png">
+                        <div id="roulette-ball"></div>
+                    </div>
+                    <div id="roulette-stats">
+                        <span id="roulette-bet-amount"><span id="roulette-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
+                        <span id="roulette-result"></span>
+                    </div>
+                    <div id="roulette-bet">
+                        <span><input type="number" min="0" max="36" step="1" value="0"><button onclick="betOnRoulette('straight');">Straight</button></span>
+                        <span><button onclick="betOnRoulette('high');">High</button><button onclick="betOnRoulette('low');">Low</button></span>
+                        <span><button onclick="betOnRoulette('red');">Red</button><button onclick="betOnRoulette('black');">Black</button></span>
+                        <span><button onclick="betOnRoulette('even');">Even</button><button onclick="betOnRoulette('odd');">Odd</button></span>
+                    </div>
+                    <span id="result"></span>
+                    <script src="roulette.js"></script>
+                    <link rel="stylesheet" href="roulette.css">
                 </div>
-                <div id="roulette-bet">
-                    <span><input type="number" min="0" max="36" step="1" value="0"><button onclick="betOnRoulette('straight');">Straight</button></span>
-                    <span><button onclick="betOnRoulette('high');">High</button><button onclick="betOnRoulette('low');">Low</button></span>
-                    <span><button onclick="betOnRoulette('red');">Red</button><button onclick="betOnRoulette('black');">Black</button></span>
-                    <span><button onclick="betOnRoulette('even');">Even</button><button onclick="betOnRoulette('odd');">Odd</button></span>
+                <div id="slots" hidden>
+                    <h1>Slots</h1>
+                    <span id="slots-rolls"></span>
+                    <div id="slots-stats">
+                        <span id="slots-bet-amount"><span id="slots-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
+                        <span id="slots-bet"><button onclick="spinSlots();">Spin</button></span>
+                    </div>
+                    <div id="slots-result"></div>
+                    <script src="slots.js"></script>
+                    <link rel="stylesheet" href="slots.css">
                 </div>
-                <span id="result"></span>
-                <script src="roulette.js"></script>
-                <link rel="stylesheet" href="roulette.css">
-            </div>
-            <div id="slots" hidden>
-                <h1>Slots</h1>
-                <span id="slots-rolls"></span>
-                <div id="slots-stats">
-                    <span id="slots-bet-amount"><span id="slots-bet-amount-box">BTC <input type="number" min="0" step="1" value="10"></span></span>
-                    <span id="slots-bet"><button onclick="spinSlots();">Spin</button></span>
+                <div id="blackjack" hidden>
+                    <h1>Blackjack</h1>
+                    <img src="imgs/blackjack.png" alt="blackjack">
+                    <!-- TODO Not coming soon -->
                 </div>
-                <div id="slots-result"></div>
-                <script src="slots.js"></script>
-                <link rel="stylesheet" href="slots.css">
-            </div>
-            <div id="blackjack" hidden>
-                <h1>Blackjack</h1>
-                <img src="imgs/blackjack.png" alt="blackjack">
-                <!-- TODO Not coming soon -->
-            </div>
-            <div id="poker" hidden>
-                <h1>Poker</h1>
-                <img src="imgs/poker.png" alt="blackjack">
-                <!-- TODO Not coming soon -->
-            </div>
-            <div id="horse-racing" hidden>
-                <h1>Horse-Racing</h1>
-                <p class="p_pferderennen">Select your horse and place your bet:</p>
-                <div>
-                    <input class="input_pferderenen" type="number" id="einsatz" min="1" max="10000" value="10">
+                <div id="poker" hidden>
+                    <h1>Poker</h1>
+                    <img src="imgs/poker.png" alt="blackjack">
+                    <!-- TODO Not coming soon -->
                 </div>
-                <div id="horse-race-bet" class="button-container">
-                    <button class="button_pferderennen" onclick="horseRaceBet(0);">Red</button>
-                    <button class="button_pferderennen" onclick="horseRaceBet(1);">Blue</button>
-                    <button class="button_pferderennen" onclick="horseRaceBet(2);">Green</button>
-                    <button class="button_pferderennen" onclick="horseRaceBet(3);">Yellow</button>
+                <div id="horse-racing" hidden>
+                    <h1>Horse-Racing</h1>
+                    <p class="p_pferderennen">Select your horse and place your bet:</p>
+                    <div>
+                        <input class="input_pferderenen" type="number" id="einsatz" min="1" max="10000" value="10">
+                    </div>
+                    <div id="horse-race-bet" class="button-container">
+                        <button class="button_pferderennen" onclick="horseRaceBet(0);">Red</button>
+                        <button class="button_pferderennen" onclick="horseRaceBet(1);">Blue</button>
+                        <button class="button_pferderennen" onclick="horseRaceBet(2);">Green</button>
+                        <button class="button_pferderennen" onclick="horseRaceBet(3);">Yellow</button>
+                    </div>
+                    <div id="horse-race-lanes" class="bahn">
+                        <div class="horse-race-lane spur" style="top: 75px;"></div>
+                        <div class="horse-race-lane spur" style="top: 145px;"></div>
+                        <div class="horse-race-lane spur" style="top: 215px;"></div>
+                        <div class="horse red pferd rot" id="pferd0"></div>
+                        <div class="horse blue pferd blau" id="pferd1"></div>
+                        <div class="horse green pferd gruen" id="pferd2"></div>
+                        <div class="horse yellow pferd gelb" id="pferd3"></div>
+                    </div>
+                    <div id="horse-race-result" style="text-align: center;"></div>
+                    <script>
+                        let horseRaceBet = betOn => {
+                            let horses = [...document.querySelectorAll(".horse")];
+                            let horseNames = ["red horse", "blue horse", "green horse", "yellow horse"];
+                            [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = true);
+                            let betAmount = Math.min(Math.max(document.getElementById("einsatz").value, 0), account.balance);
+                            document.querySelector("#horse-race-result").innerText = `You bet BTC ${betAmount} on the ${horseNames[betOn]}. The race begins!`;
+                            account.balance -= betAmount;
+                            updateAccount();
+                            let positions = horses.map(() => 0);
+                            let intervall = setInterval(() => {
+                                horses.forEach((horse, i) => horse.style.left = `${positions[i] += Math.random() * 5}px`);
+                                let first = positions.reduce((first, pos, i) => pos > positions[first] ? i : first, 0);
+                                if (positions[first] > document.getElementById("horse-race-lanes").clientWidth) {
+                                    clearInterval(intervall);
+                                    account.balance += betAmount * 3.5 * (betOn == first);
+                                    document.querySelector("#horse-race-result").innerText = betOn == first ? `Congratulations! The ${horseNames[first]} won. You won BTC ${betAmount * 3}.` : `You lost. The ${horseNames[first]} won.`;
+                                    [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = false);
+                                    saveAccount();
+                                }
+                            }, 20);
+                        };
+                    </script>
                 </div>
-                <div id="horse-race-lanes" class="bahn">
-                    <div class="horse-race-lane spur" style="top: 75px;"></div>
-                    <div class="horse-race-lane spur" style="top: 145px;"></div>
-                    <div class="horse-race-lane spur" style="top: 215px;"></div>
-                    <div class="horse red pferd rot" id="pferd0"></div>
-                    <div class="horse blue pferd blau" id="pferd1"></div>
-                    <div class="horse green pferd gruen" id="pferd2"></div>
-                    <div class="horse yellow pferd gelb" id="pferd3"></div>
+                <div id="high-roller" hidden>
+                    <h1>Access for VIP customers only</h1>
+                    <!-- <a id="high-roller" href="VIPbutton"><img src="pfeil.png" alt="↓"></a> -->
+                    <a href="membership.html" id="VIPbutton">Get our Stake VIP membership</a>
                 </div>
-                <div id="horse-race-result" style="text-align: center;"></div>
-                <script>
-                    let horseRaceBet = betOn => {
-                        let horses = [...document.querySelectorAll(".horse")];
-                        let horseNames = ["red horse", "blue horse", "green horse", "yellow horse"];
-                        [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = true);
-                        let betAmount = Math.min(Math.max(document.getElementById("einsatz").value, 0), account.balance);
-                        document.querySelector("#horse-race-result").innerText = `You bet BTC ${betAmount} on the ${horseNames[betOn]}. The race begins!`;
-                        account.balance -= betAmount;
-                        updateAccount();
-                        let positions = horses.map(() => 0);
-                        let intervall = setInterval(() => {
-                            horses.forEach((horse, i) => horse.style.left = `${positions[i] += Math.random() * 5}px`);
-                            let first = positions.reduce((first, pos, i) => pos > positions[first] ? i : first, 0);
-                            if (positions[first] > document.getElementById("horse-race-lanes").clientWidth) {
-                                clearInterval(intervall);
-                                account.balance += betAmount * 3.5 * (betOn == first);
-                                document.querySelector("#horse-race-result").innerText = betOn == first ? `Congratulations! The ${horseNames[first]} won. You won BTC ${betAmount * 3}.` : `You lost. The ${horseNames[first]} won.`;
-                                [...document.querySelectorAll("#horse-race-bet * ")].forEach(button => button.disabled = false);
-                                saveAccount();
-                            }
-                        }, 20);
-                    };
-                </script>
-            </div>
-            <div id="high-roller" hidden>
-                <h1>Access for VIP customers only</h1>
-                <!-- <a id="high-roller" href="VIPbutton"><img src="pfeil.png" alt="↓"></a> -->
-                <a href="membership.html" id="VIPbutton">Get our Stake VIP membership</a>
-            </div>
-            <div id="sport" hidden>
-                <h1 id="sport-title"></h1>
-                <img id="sport-image" src="imgs/football.png">
-                <br>
-                <h3>Todays match-up:</h3>
-                <span class="match-up">
-                    <span class="team-a"><a class="name"></a><a class="return"></a></span>&nbsp;:&nbsp;<span class="team-b"><a class="name"></a><a class="return"></a></span>
-                </span>
-            </div>
-        </main>
+                <div id="sport" hidden>
+                    <h1 id="sport-title"></h1>
+                    <img id="sport-image" src="imgs/football.png">
+                    <br>
+                    <h3>Todays match-up:</h3>
+                    <span class="match-up">
+                        <span class="team-a"><a class="name"></a><a class="return"></a></span>&nbsp;:&nbsp;<span class="team-b"><a class="name"></a><a class="return"></a></span>
+                    </span>
+                </div>
+            </main>
         </span>
         <footer>
             <div class="footer-container">

@@ -4,8 +4,8 @@
 
 #slots-rolls {
     display: block;
-    width: min(100vw - 250px, 1000px);
-    height: min((100vw - 250px) / 5 * 3, 600px);
+    width: min(var(--main-width), 1000px);
+    height: min(var(--main-width) / 5 * 3, 600px);
     margin: auto;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@
 }
 #slots-rolls img {
     width: 100%;
-    height: min((100vw - 250px) / 5, 200px);
+    height: min(var(--main-width) / 5, 200px);
     margin: 0;
 }
 
